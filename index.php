@@ -206,7 +206,7 @@ $whatsapp_link      = $settings['whatsapp_link'];
                 <a class="transition hover:text-sand" href="#duvidas">Dúvidas</a>
                 <a class="transition hover:text-sand" href="blog.php">Blog</a>
             </nav>
-            <a href="<?php echo e($whatsapp_link); ?>" target="_blank" rel="noopener" class="whatsapp-cta soft-radius hidden items-center gap-2 border border-sand bg-transparent px-5 py-3 text-[11px] font-bold uppercase tracking-[0.16em] text-sand transition hover:border-cream hover:text-cream sm:inline-flex">
+            <a href="<?php echo e($whatsapp_link); ?>" target="_blank" rel="noopener" class="whatsapp-cta soft-radius hidden items-center gap-2 border border-sand bg-sand px-5 py-3 text-[11px] font-bold uppercase tracking-[0.16em] text-wineDark transition hover:border-cream hover:bg-cream sm:inline-flex">
                 Falar com especialista
             </a>
             <button id="menu-btn" class="soft-radius grid h-10 w-10 place-items-center border border-cream/25 text-cream lg:hidden" aria-label="Abrir menu">
@@ -221,7 +221,7 @@ $whatsapp_link      = $settings['whatsapp_link'];
                 <a href="#duvidas">Dúvidas</a>
                 <a href="blog.php">Blog</a>
                 <a href="#contato">Entre em contato</a>
-                <a href="<?php echo e($whatsapp_link); ?>" target="_blank" rel="noopener" class="whatsapp-cta soft-radius inline-flex items-center justify-center gap-2 border border-sand bg-transparent px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] text-sand">Falar com especialista</a>
+                <a href="<?php echo e($whatsapp_link); ?>" target="_blank" rel="noopener" class="whatsapp-cta soft-radius inline-flex items-center justify-center gap-2 border border-sand bg-sand px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] text-wineDark transition hover:border-cream hover:bg-cream">Falar com especialista</a>
             </nav>
         </div>
     </header>
@@ -242,7 +242,7 @@ $whatsapp_link      = $settings['whatsapp_link'];
                         Defendemos os direitos dos trabalhadores e oferecemos soluções jurídicas seguras para empresas, com atuação técnica, transparente e eficiente.
                     </p>
                     <div class="mt-10 flex flex-row items-center gap-3">
-                        <a href="<?php echo e($whatsapp_link); ?>" target="_blank" rel="noopener" class="whatsapp-cta soft-radius inline-flex min-h-14 items-center justify-center gap-2 border border-sand bg-transparent px-7 py-4 text-xs font-bold uppercase tracking-[0.16em] text-sand transition hover:bg-sand hover:text-wineDark">
+                        <a href="<?php echo e($whatsapp_link); ?>" target="_blank" rel="noopener" class="whatsapp-cta soft-radius inline-flex min-h-14 items-center justify-center gap-2 border border-sand bg-sand px-7 py-4 text-xs font-bold uppercase tracking-[0.16em] text-wineDark transition hover:border-cream hover:bg-cream">
                             Falar com especialista
                         </a>
                         <a href="#sobre" aria-label="Ir para a próxima seção" class="soft-radius grid h-14 w-14 shrink-0 place-items-center border border-sand text-sand transition hover:bg-sand hover:text-wineDark">
@@ -292,29 +292,39 @@ $whatsapp_link      = $settings['whatsapp_link'];
 
         <section id="servicos" class="bg-bordo py-20 text-cream md:py-28">
             <div class="mx-auto max-w-7xl px-5 lg:px-8">
-                <div class="mx-auto mb-12 max-w-3xl text-center reveal">
-                    <h2 class="font-serif text-3xl leading-tight md:text-5xl">Serviços jurídicos.</h2>
-                </div>
-                <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                    <?php
-                    $services = [
-                        ['Rescisão Trabalhista', 'Verbas rescisórias, multas e irregularidades no encerramento do contrato.'],
-                        ['Assédio Moral', 'Análise de abusos, humilhações e perseguições no ambiente profissional.'],
-                        ['Acidente de Trabalho', 'Afastamentos, estabilidade, indenizações e responsabilidade do empregador.'],
-                        ['Doenças Ocupacionais', 'Casos de LER/DORT, burnout e adoecimentos relacionados ao trabalho.'],
-                        ['Horas Extras', 'Jornada, intervalos, banco de horas e pagamentos não realizados.'],
-                        ['Justa Causa', 'Avaliação da proporcionalidade e possibilidade de reversão.'],
-                        ['Atendimento para Empresas', 'Consultoria preventiva e defesa trabalhista estratégica.'],
-                        ['Cível e Previdenciário', 'Orientação complementar para proteger relações e benefícios.'],
-                    ];
-                    foreach ($services as $service):
-                    ?>
-                        <article class="soft-radius min-h-52 border border-[#6B181D] bg-bordoDeep/35 p-6 text-cream transition hover:-translate-y-1 hover:border-[#8A252B] reveal">
-                            <p class="mb-8 text-[10px] font-bold uppercase tracking-[0.18em] text-sand/70">Serviço</p>
-                            <h3 class="font-serif text-2xl leading-tight text-cream"><?php echo e($service[0]); ?></h3>
-                            <p class="mt-4 text-xs leading-6 text-cream/62"><?php echo e($service[1]); ?></p>
-                        </article>
-                    <?php endforeach; ?>
+                <?php
+                $services = [
+                    ['title' => 'Rescisão Trabalhista', 'description' => 'Verbas rescisórias, multas e irregularidades no encerramento do contrato.', 'icon' => 'file-text'],
+                    ['title' => 'Assédio Moral', 'description' => 'Análise de abusos, humilhações e perseguições no ambiente profissional.', 'icon' => 'shield-warning'],
+                    ['title' => 'Acidente de Trabalho', 'description' => 'Afastamentos, estabilidade, indenizações e responsabilidade do empregador.', 'icon' => 'hard-hat'],
+                    ['title' => 'Doenças Ocupacionais', 'description' => 'Casos de LER/DORT, burnout e adoecimentos relacionados ao trabalho.', 'icon' => 'heartbeat'],
+                    ['title' => 'Horas Extras', 'description' => 'Jornada, intervalos, banco de horas e pagamentos não realizados.', 'icon' => 'clock'],
+                    ['title' => 'Justa Causa', 'description' => 'Avaliação da proporcionalidade e possibilidade de reversão.', 'icon' => 'gavel'],
+                    ['title' => 'Atendimento para Empresas', 'description' => 'Consultoria preventiva e defesa trabalhista estratégica.', 'icon' => 'buildings'],
+                    ['title' => 'Cível e Previdenciário', 'description' => 'Orientação complementar para proteger relações e benefícios.', 'icon' => 'umbrella'],
+                ];
+                ?>
+
+                <div class="grid gap-10 lg:grid-cols-[.82fr_1.18fr] lg:gap-16">
+                        <aside class="reveal lg:sticky lg:top-28 lg:self-start">
+                            <p class="mb-4 text-[11px] font-bold uppercase tracking-[0.2em] text-sand">Serviços jurídicos</p>
+                            <h2 class="max-w-md font-serif text-4xl leading-tight md:text-6xl">Atuação orientada por estratégia.</h2>
+                            <p class="mt-6 max-w-md text-sm leading-7 text-cream/70">Cada atendimento começa pela escuta qualificada do problema, segue com avaliação jurídica precisa e avança com estratégia compatível com o objetivo do cliente.</p>
+                        </aside>
+                        <div class="grid gap-4 sm:grid-cols-2">
+                            <?php foreach ($services as $index => $service): ?>
+                                <article class="soft-radius border border-cream/20 bg-white p-5 text-wineDark shadow-[0_18px_50px_rgba(38,3,5,.14)] transition hover:-translate-y-1 hover:border-sand hover:shadow-[0_24px_64px_rgba(38,3,5,.18)] reveal">
+                                    <div class="mb-6 flex items-start justify-between gap-4">
+                                        <span class="font-serif text-3xl leading-none text-wine/35"><?php echo str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT); ?>.</span>
+                                        <span class="grid h-10 w-10 place-items-center rounded-full bg-bordo/5 text-wine">
+                                            <?php echo ph_icon($service['icon'], 'text-xl leading-none'); ?>
+                                        </span>
+                                    </div>
+                                    <h3 class="font-serif text-2xl leading-tight text-wineDark"><?php echo e($service['title']); ?></h3>
+                                    <p class="mt-3 text-xs leading-6 text-ink/70"><?php echo e($service['description']); ?></p>
+                                </article>
+                            <?php endforeach; ?>
+                        </div>
                 </div>
             </div>
         </section>
@@ -360,36 +370,127 @@ $whatsapp_link      = $settings['whatsapp_link'];
             </div>
         </section>
 
+        <section id="avaliacoes" class="bg-paper py-20 text-wineDark md:py-28">
+            <div class="mx-auto max-w-7xl px-5 lg:px-8">
+                <div class="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end reveal">
+                    <div>
+                        <p class="mb-4 text-[11px] font-bold uppercase tracking-[0.2em] text-wine/70">Avaliações no Google</p>
+                        <h2 class="max-w-2xl font-serif text-4xl leading-tight text-wineDark md:text-6xl">Confiança construída em cada atendimento.</h2>
+                    </div>
+                    <a href="<?php echo e($google_reviews_url); ?>" target="_blank" rel="noopener" class="soft-radius inline-flex items-center justify-center gap-2 border border-wine px-6 py-3 text-xs font-bold uppercase tracking-[0.16em] text-wine transition hover:bg-wine hover:text-cream">
+                        Ver no Google
+                        <?php echo ph_icon('arrow-up-right', 'text-base leading-none'); ?>
+                    </a>
+                </div>
+
+                <?php
+                $reviewCards = [
+                    [
+                        'name' => 'Gilvonete Felix',
+                        'quote' => 'Uma experiência maravilhosa! Uma excelente advogada! Eu super indico.',
+                        'date' => '3 meses atrás',
+                        'initial' => 'G',
+                        'avatar' => null,
+                        'avatarClass' => 'bg-[#F27A1A] text-white',
+                    ],
+                    [
+                        'name' => 'Ana Carolina',
+                        'quote' => 'Ambiente agradável, advogados habilidosos, prestativos e Dra. Gabriela muito competente!',
+                        'date' => '3 meses atrás',
+                        'initial' => 'A',
+                        'avatar' => 'image/reviews/ana-carolina-pedreira.png',
+                        'avatarClass' => 'bg-wine text-cream',
+                    ],
+                    [
+                        'name' => 'Carlos Alberto',
+                        'quote' => 'Excelente profissional...trabalho feito com muita dedicação e compromisso, parabéns!!...',
+                        'date' => '3 meses atrás',
+                        'initial' => 'C',
+                        'avatar' => null,
+                        'avatarClass' => 'bg-wine text-cream',
+                    ],
+                ];
+                ?>
+
+                <div class="grid gap-5 md:grid-cols-3">
+                    <?php foreach ($reviewCards as $review): ?>
+                        <article class="soft-radius border border-wine/10 bg-white p-7 shadow-[0_18px_50px_rgba(63,7,10,.08)] transition duration-300 hover:-translate-y-2 hover:border-wine/35 hover:bg-paper/80 hover:shadow-[0_28px_70px_rgba(63,7,10,.16)] reveal">
+                            <div class="mb-7 flex items-start justify-between gap-4">
+                                <div class="flex min-w-0 items-center gap-3">
+                                    <?php if ($review['avatar']): ?>
+                                        <img src="<?php echo e($review['avatar']); ?>" alt="<?php echo e($review['name']); ?>" class="h-12 w-12 shrink-0 rounded-full object-cover">
+                                    <?php else: ?>
+                                        <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-lg font-medium <?php echo e($review['avatarClass']); ?>" aria-hidden="true"><?php echo e($review['initial']); ?></span>
+                                    <?php endif; ?>
+                                    <div class="min-w-0">
+                                        <h3 class="font-serif text-[1.45rem] leading-[1.08] text-wineDark sm:text-2xl"><?php echo e($review['name']); ?></h3>
+                                        <p class="mt-1 text-[10px] font-medium uppercase tracking-[0.16em] text-wine/50"><?php echo e($review['date']); ?></p>
+                                    </div>
+                                </div>
+                                <span class="mt-1 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white shadow-[0_8px_20px_rgba(63,7,10,.08)]" aria-label="Google">
+                                    <svg viewBox="0 0 48 48" class="h-5 w-5" aria-hidden="true" focusable="false">
+                                        <path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 34 30 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 3.1l6-6C34.5 4.8 29.6 3 24 3 12.4 3 3 12.4 3 24s9.4 21 21 21c10.5 0 20-7.6 20-21 0-1.3-.2-2.7-.5-4z" />
+                                        <path fill="#34A853" d="M6.3 14.1l7 5.1C15.2 14.4 19.3 11 24 11c3.1 0 5.9 1.1 8.1 3.1l6-6C34.5 4.8 29.6 3 24 3 16.1 3 9.2 7.5 6.3 14.1z" />
+                                        <path fill="#FBBC05" d="M24 45c5.5 0 10.2-1.8 13.6-4.9l-6.3-5.2C29.5 36.2 27 37 24 37c-5.9 0-10.9-4-12.6-9.4l-7 5.4C7.6 40.1 15.1 45 24 45z" />
+                                        <path fill="#EA4335" d="M11.4 27.6c-.5-1.3-.7-2.5-.7-3.6s.2-2.3.6-3.5l-7-5.4C3.5 17.8 3 20.8 3 24s.5 6.2 1.5 8.9l6.9-5.3z" />
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="mb-5 inline-flex items-center gap-1 text-wine" aria-label="Cinco estrelas">
+                                <?php for ($star = 0; $star < 5; $star++): ?><i class="ph-fill ph-star text-lg leading-none" aria-hidden="true"></i><?php endfor; ?>
+                            </div>
+                            <p class="text-sm leading-7 text-ink/70">“<?php echo e($review['quote']); ?>”</p>
+                        </article>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </section>
+
         <section id="contato" class="bg-bordo py-20 text-cream md:py-28">
             <div class="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-2 lg:px-8">
                 <div class="self-center reveal">
                     <p class="mb-5 text-[11px] font-bold uppercase tracking-[0.2em] text-cream/55">Contato</p>
                     <h2 class="font-serif text-4xl leading-tight md:text-6xl">Fale conosco.</h2>
                     <p class="mt-6 max-w-xl text-base leading-8 text-cream/75">Conte brevemente o que você precisa e nossa equipe retornará para entender seu caso, orientar os próximos passos e indicar a melhor forma de atendimento.</p>
-                    <div class="mt-10 grid max-w-md grid-cols-1 gap-5 text-sm text-cream/70 sm:grid-cols-3">
-                        <div><strong class="block font-serif text-4xl text-cream">03</strong> áreas jurídicas</div>
-                        <div><strong class="block font-serif text-4xl text-cream">15</strong> anos de mercado</div>
-                        <div><strong class="block font-serif text-4xl text-cream">+400</strong> clientes atendidos</div>
+                    <div class="soft-radius mt-10 max-w-xl overflow-hidden border border-cream/15 bg-bordoDeep/35 shadow-[0_22px_60px_rgba(38,3,5,.22)]">
+                        <iframe
+                            src="https://www.google.com/maps?q=Pr%C3%A9dio%20comercial%20Adelaide%20Maria%20Costa%20-%20Rua%20Louren%C3%A7o%20Silva%2C%20Cal%C3%A7ad%C3%A3o%2C%20Sala%20204%2C%20Sr.%20do%20Bonfim%20-%20BA%2C%2048970-000&output=embed"
+                            title="Mapa do escritório Gabriela Pita Advogados Associados"
+                            class="h-64 w-full border-0 grayscale-[15%] md:h-72"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            allowfullscreen>
+                        </iframe>
+                        <div class="flex flex-col gap-4 border-t border-cream/10 px-5 py-4 text-sm leading-6 text-cream/75 sm:flex-row sm:items-center sm:justify-between">
+                            <p class="flex gap-2">
+                                <?php echo ph_icon('map-pin', 'mt-1 shrink-0 text-lg text-sand'); ?>
+                                <span>Prédio comercial Adelaide Maria Costa - Rua Lourenço Silva, Calçadão, Sala 204, Sr. do Bonfim - BA, 48970-000</span>
+                            </p>
+                            <a href="https://maps.app.goo.gl/WjUvFRnipQ7d7ZF5A" target="_blank" rel="noopener" class="inline-flex shrink-0 items-center gap-2 text-[10px] font-bold uppercase tracking-[0.16em] text-sand transition hover:text-cream">
+                                Abrir mapa
+                                <?php echo ph_icon('arrow-up-right', 'text-sm leading-none'); ?>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <form id="lead-form" class="soft-radius border border-[#6B181D] bg-bordoDeep/35 p-7 text-cream shadow-2xl reveal">
+                <form id="lead-form" class="soft-radius border border-wine/12 bg-white p-7 text-wineDark shadow-[0_24px_70px_rgba(38,3,5,.18)] reveal">
                     <?php echo csrf_field(); ?>
                     <input type="text" name="website" id="form-website" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
-                    <h3 class="font-serif text-2xl text-cream">Solicitar Análise de Caso</h3>
-                    <p class="mt-2 text-xs text-cream/62">Preencha o formulário para iniciarmos seu atendimento de forma rápida.</p>
+                    <h3 class="font-serif text-2xl text-wineDark">Solicitar Análise de Caso</h3>
+                    <p class="mt-2 text-xs text-ink/65">Preencha o formulário para iniciarmos seu atendimento de forma rápida.</p>
                     <div class="mt-6 grid gap-4">
                         <div>
-                            <label class="mb-2 block text-[10px] font-bold uppercase tracking-[0.16em] text-sand/70">Nome completo</label>
-                            <input id="form-name" type="text" required class="soft-radius w-full border border-[#6B181D] bg-bordoDeep/55 px-4 py-3 text-sm text-cream outline-none placeholder:text-cream/42 focus:border-[#8A252B]" placeholder="Seu nome">
+                            <label class="mb-2 block text-[10px] font-bold uppercase tracking-[0.16em] text-wine/60">Nome completo</label>
+                            <input id="form-name" type="text" required class="soft-radius w-full border border-wine/15 bg-paper/65 px-4 py-3 text-sm text-wineDark outline-none placeholder:text-ink/42 transition focus:border-wine/45 focus:ring-2 focus:ring-wine/10" placeholder="Seu nome">
                         </div>
                         <div class="grid gap-4 sm:grid-cols-2">
                             <div>
-                                <label class="mb-2 block text-[10px] font-bold uppercase tracking-[0.16em] text-sand/70">WhatsApp</label>
-                                <input id="form-phone" type="tel" required class="soft-radius w-full border border-[#6B181D] bg-bordoDeep/55 px-4 py-3 text-sm text-cream outline-none placeholder:text-cream/42 focus:border-[#8A252B]" placeholder="(00) 00000-0000">
+                                <label class="mb-2 block text-[10px] font-bold uppercase tracking-[0.16em] text-wine/60">WhatsApp</label>
+                                <input id="form-phone" type="tel" required class="soft-radius w-full border border-wine/15 bg-paper/65 px-4 py-3 text-sm text-wineDark outline-none placeholder:text-ink/42 transition focus:border-wine/45 focus:ring-2 focus:ring-wine/10" placeholder="(00) 00000-0000">
                             </div>
                             <div>
-                                <label class="mb-2 block text-[10px] font-bold uppercase tracking-[0.16em] text-sand/70">Área de interesse</label>
-                                <select id="form-area" class="soft-radius w-full border border-[#6B181D] bg-bordoDeep/55 px-4 py-3 text-sm text-cream outline-none focus:border-[#8A252B]">
+                                <label class="mb-2 block text-[10px] font-bold uppercase tracking-[0.16em] text-wine/60">Área de interesse</label>
+                                <select id="form-area" class="soft-radius w-full border border-wine/15 bg-paper/65 px-4 py-3 text-sm text-wineDark outline-none transition focus:border-wine/45 focus:ring-2 focus:ring-wine/10">
                                     <option>Trabalhista (Trabalhador)</option>
                                     <option>Empresarial / Preventiva</option>
                                     <option>Cível / Família</option>
@@ -398,8 +499,8 @@ $whatsapp_link      = $settings['whatsapp_link'];
                             </div>
                         </div>
                         <div>
-                                <label class="mb-2 block text-[10px] font-bold uppercase tracking-[0.16em] text-sand/70">Mensagem / relato breve</label>
-                                <textarea id="form-message" rows="5" class="soft-radius w-full border border-[#6B181D] bg-bordoDeep/55 px-4 py-3 text-sm text-cream outline-none placeholder:text-cream/42 focus:border-[#8A252B]" placeholder="Como podemos ajudar?"></textarea>
+                                <label class="mb-2 block text-[10px] font-bold uppercase tracking-[0.16em] text-wine/60">Mensagem / relato breve</label>
+                                <textarea id="form-message" rows="5" class="soft-radius w-full border border-wine/15 bg-paper/65 px-4 py-3 text-sm text-wineDark outline-none placeholder:text-ink/42 transition focus:border-wine/45 focus:ring-2 focus:ring-wine/10" placeholder="Como podemos ajudar?"></textarea>
                             </div>
                         <button type="submit" class="soft-radius bg-wine px-6 py-4 text-xs font-bold uppercase tracking-[0.16em] text-cream transition hover:bg-wineDark">Enviar solicitação de atendimento</button>
                         <p id="form-status" class="hidden text-sm leading-relaxed"></p>
@@ -475,6 +576,11 @@ $whatsapp_link      = $settings['whatsapp_link'];
         </section>
     </main>
 
+    <a href="<?php echo e($whatsapp_link); ?>" target="_blank" rel="noopener" aria-label="Falar no WhatsApp" class="fixed bottom-5 right-5 z-50 inline-flex h-14 items-center justify-center gap-3 rounded-[10px] border border-sand bg-sand px-4 text-wineDark shadow-[0_18px_48px_rgba(38,3,5,.24)] transition hover:border-cream hover:bg-cream focus:outline-none focus:ring-2 focus:ring-sand/45 sm:px-5">
+        <?php echo ph_icon('whatsapp-logo', 'whatsapp-icon text-2xl leading-none'); ?>
+        <span class="hidden text-[11px] font-bold uppercase tracking-[0.16em] sm:inline">WhatsApp</span>
+    </a>
+
     <footer class="bg-bordoDeep py-12 text-cream">
         <div class="mx-auto grid max-w-7xl gap-10 px-5 md:grid-cols-3 lg:px-8">
             <div class="reveal">
@@ -534,7 +640,7 @@ $whatsapp_link      = $settings['whatsapp_link'];
 
             button.disabled = true;
             button.textContent = 'Enviando...';
-            formStatus.className = 'text-sm text-cream/62';
+            formStatus.className = 'text-sm text-ink/60';
             formStatus.textContent = 'Enviando sua solicitação.';
 
             try {

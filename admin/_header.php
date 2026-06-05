@@ -292,15 +292,6 @@ security_headers(true);
         .admin-footer-inner { max-width: 1280px; margin: 0 auto; padding: 18px 20px; display: flex; align-items: center; justify-content: space-between; gap: 14px; font-size: 13px; }
         .admin-footer-brand,
         .admin-version { display: inline-flex; align-items: center; gap: 8px; }
-        .admin-signature-prefix { color: var(--muted); }
-        .admin-signature {
-            color: var(--text);
-            font-family: "Taken by Vultures", cursive;
-            font-size: 34px;
-            font-weight: 400;
-            line-height: 1;
-            transform: translateY(2px);
-        }
         .admin-footer-heart { color: #f87171; font-size: 15px; line-height: 1; }
         .admin-footer strong { color: var(--text); font-weight: 400; }
         .admin-version { border: 1px solid var(--line); border-radius: 999px; padding: 6px 10px; background: rgba(255,255,255,.025); color: var(--gold); font-weight: 500; }

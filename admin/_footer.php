@@ -5,8 +5,6 @@
                 Feito com
                 <?php echo ph_icon('heart', 'admin-footer-heart', 'aria-label="amor" role="img"'); ?>
                 pela <strong>Meraki</strong>
-                <span class="admin-signature-prefix">by</span>
-                <span class="admin-signature">Fabricio Macedo</span>
             </span>
             <span class="admin-version">Ver. 1.0.1</span>
         </div>

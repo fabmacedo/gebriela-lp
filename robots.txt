@@ -14,4 +14,4 @@ Disallow: /*.zip$
 
 Allow: /
 
-Sitemap: https://gabrielapitaadvogados.com.br/aprova/sitemap.php
+Sitemap: https://gabrielapitaadvogados.com.br/sitemap.php

@@ -15,6 +15,7 @@ function only_numbers(string $value): string
 function render_phosphor_icons(): void
 {
     echo '    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/light/style.css">' . "\n";
+    echo '    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/fill/style.css">' . "\n";
 }
 
 function render_jost_weight_cap_styles(): void
@@ -48,8 +49,7 @@ function render_jost_weight_cap_styles(): void
         body .site-logo,
         body .site-logo *,
         body .brand-name,
-        body .brand-name *,
-        body .admin-signature { font-weight: 400; }
+        body .brand-name * { font-weight: 400; }
     </style>
 HTML;
     echo "\n";
@@ -73,7 +73,7 @@ function get_site_settings(): array
         'oab_registro' => 'OAB/BA 123.456',
         'nome_escritorio' => 'Gabriela Pita Advogados Associados',
         'endereco_local' => 'Senhor do Bonfim - BA',
-        'google_reviews_url' => 'https://share.google/4WiH0xnA9gj7wySTe',
+        'google_reviews_url' => 'https://share.google/f0CHbeOnC5QMY2l4R',
         'hero_image_url' => 'image/foto-hero.png',
         'favicon_url' => '',
         'smtp_enabled' => '1',
@@ -85,7 +85,7 @@ function get_site_settings(): array
         'smtp_from_email' => 'contato@gabrielapitaadvogados.com.br',
         'smtp_from_name' => 'Gabriela Pita Advogados Associados',
         'smtp_to_email' => 'contato@gabrielapitaadvogados.com.br',
-        'seo_site_url' => 'https://gabrielapitaadvogados.com.br/aprova/',
+        'seo_site_url' => 'https://gabrielapitaadvogados.com.br/',
         'seo_home_title' => 'Gabriela Pita Advogados Associados | Advocacia Trabalhista, Cível e Previdenciária',
         'seo_home_description' => 'Assessoria jurídica estratégica para trabalhadores e empresas, com atuação em direito trabalhista, cível e previdenciário. Atendimento humanizado, técnico e transparente em Senhor do Bonfim - BA.',
         'seo_home_keywords' => 'Gabriela Pita, advogada trabalhista, advocacia trabalhista, direito do trabalho, direito previdenciário, direito cível, advogado em Senhor do Bonfim, assessoria jurídica para empresas, rescisão trabalhista, assédio moral no trabalho',

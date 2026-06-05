@@ -1,6 +1,6 @@
 Options -Indexes
 
-ErrorDocument 404 /aprova/404.php
+ErrorDocument 404 /404.php
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
