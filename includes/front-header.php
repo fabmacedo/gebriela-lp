@@ -1,0 +1,165 @@
+<?php
+
+function render_front_header_styles(): void
+{
+    echo <<<'HTML'
+        .site-logo, .site-logo * { font-family: 'Bellefair', Georgia, serif !important; font-weight: 400; }
+        .site-logo { line-height: 1; }
+        .site-logo-name {
+            display: block;
+            margin: 0;
+            font-family: 'Bellefair', Georgia, serif !important;
+            font-size: 26px;
+            letter-spacing: .035em;
+            line-height: .9 !important;
+            text-transform: uppercase;
+        }
+        .site-logo-subtitle {
+            display: block;
+            margin: 0;
+            padding-top: 3px;
+            font-family: 'Bellefair', Georgia, serif !important;
+            font-size: 10px;
+            letter-spacing: .18em;
+            line-height: 1 !important;
+            text-transform: uppercase;
+        }
+        .floating-header {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            border-radius: 10px;
+            background: rgba(47, 19, 13, .88);
+            box-shadow: 0 20px 62px rgba(18, 7, 5, .28), inset 0 1px 0 rgba(255, 255, 255, .12);
+        }
+        .floating-header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background:
+                linear-gradient(90deg, rgba(47, 19, 13, .96), rgba(47, 19, 13, .9));
+            background-color: rgba(63, 7, 10, .78);
+            -webkit-backdrop-filter: blur(96px) saturate(145%) brightness(.62);
+            backdrop-filter: blur(96px) saturate(145%) brightness(.62);
+        }
+        .floating-header > * {
+            position: relative;
+            z-index: 1;
+        }
+        .site-header {
+            transition: transform .28s ease, opacity .22s ease;
+            will-change: transform, opacity;
+        }
+        .site-header.is-hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(calc(-100% - 32px));
+        }
+        @media (max-width: 767px) {
+            .floating-header {
+                background: rgba(47, 19, 13, .92);
+            }
+            .floating-header::before {
+                background:
+                    linear-gradient(90deg, rgba(47, 19, 13, .97), rgba(47, 19, 13, .92));
+                background-color: rgba(63, 7, 10, .84);
+            }
+        }
+HTML;
+    echo "\n";
+}
+
+function render_front_header(array $settings, bool $isHome = false): void
+{
+    $logoHref = $isHome ? '#inicio' : 'index.php#inicio';
+    $sectionPrefix = $isHome ? '#' : 'index.php#';
+    $whatsappLink = $settings['whatsapp_link'] ?? '';
+    $officeName = $settings['nome_escritorio'] ?? 'Gabriela Pita Advogados Associados';
+    ?>
+    <header id="site-header" class="site-header fixed inset-x-0 top-4 z-50 px-4 sm:top-6">
+        <div class="floating-header mx-auto flex min-h-16 max-w-7xl items-center justify-between gap-6 border border-cream/15 px-5 py-3 lg:min-h-20 lg:px-8">
+            <a href="<?php echo e($logoHref); ?>" class="site-logo text-cream" aria-label="<?php echo e($officeName); ?> Home">
+                <span class="site-logo-name">Gabriela Pita</span>
+                <span class="site-logo-subtitle">Advogados Associados</span>
+            </a>
+            <nav class="ml-auto hidden items-center gap-7 text-[11px] font-bold uppercase tracking-[0.18em] text-cream/80 lg:flex">
+                <a class="transition hover:text-sand" href="<?php echo e($sectionPrefix); ?>sobre">Quem sou eu?</a>
+                <a class="transition hover:text-sand" href="<?php echo e($sectionPrefix); ?>servicos">Serviços</a>
+                <a class="transition hover:text-sand" href="<?php echo e($sectionPrefix); ?>diferenciais">Diferenciais</a>
+                <a class="transition hover:text-sand" href="<?php echo e($sectionPrefix); ?>duvidas">Dúvidas</a>
+                <a class="transition hover:text-sand" href="blog.php">Blog</a>
+            </nav>
+            <a href="<?php echo e($whatsappLink); ?>" target="_blank" rel="noopener" class="whatsapp-cta soft-radius hidden items-center gap-2 border border-sand bg-sand px-5 py-3 text-[11px] font-bold uppercase tracking-[0.16em] text-wineDark transition hover:border-cream hover:bg-cream sm:inline-flex">
+                Falar com especialista
+            </a>
+            <button id="menu-btn" class="soft-radius grid h-10 w-10 place-items-center border border-cream/25 text-cream lg:hidden" aria-label="Abrir menu">
+                <?php echo ph_icon('list', 'text-2xl leading-none'); ?>
+            </button>
+        </div>
+        <div id="mobile-menu" class="mx-auto mt-3 hidden max-w-7xl rounded-[10px] border border-cream/15 bg-bordo/45 px-5 py-5 shadow-2xl backdrop-blur-2xl lg:hidden">
+            <nav class="grid gap-4 text-sm font-semibold text-cream">
+                <a href="<?php echo e($sectionPrefix); ?>sobre">Quem sou eu?</a>
+                <a href="<?php echo e($sectionPrefix); ?>servicos">Serviços</a>
+                <a href="<?php echo e($sectionPrefix); ?>diferenciais">Diferenciais</a>
+                <a href="<?php echo e($sectionPrefix); ?>duvidas">Dúvidas</a>
+                <a href="blog.php">Blog</a>
+                <a href="<?php echo e($sectionPrefix); ?>contato">Entre em contato</a>
+                <a href="<?php echo e($whatsappLink); ?>" target="_blank" rel="noopener" class="whatsapp-cta soft-radius inline-flex items-center justify-center gap-2 border border-sand bg-sand px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] text-wineDark transition hover:border-cream hover:bg-cream">Falar com especialista</a>
+            </nav>
+        </div>
+    </header>
+    <?php
+}
+
+function render_front_header_script(): void
+{
+    echo <<<'HTML'
+    <script>
+        (() => {
+            const root = document.documentElement;
+            if (root.dataset.frontHeaderReady === '1') return;
+            root.dataset.frontHeaderReady = '1';
+
+            const siteHeader = document.getElementById('site-header');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuButton = document.getElementById('menu-btn');
+
+            menuButton?.addEventListener('click', () => {
+                mobileMenu?.classList.toggle('hidden');
+            });
+
+            if (!siteHeader) return;
+
+            let lastScrollY = Math.max(window.scrollY, 0);
+            let headerTicking = false;
+            const topRevealLimit = 40;
+            const downTolerance = 8;
+
+            const updateHeaderVisibility = () => {
+                const currentScrollY = Math.max(window.scrollY, 0);
+                const scrollDelta = currentScrollY - lastScrollY;
+
+                if (currentScrollY <= topRevealLimit) {
+                    siteHeader.classList.remove('is-hidden');
+                } else if (scrollDelta > downTolerance) {
+                    siteHeader.classList.add('is-hidden');
+                    mobileMenu?.classList.add('hidden');
+                } else if (scrollDelta < 0) {
+                    siteHeader.classList.remove('is-hidden');
+                }
+
+                lastScrollY = currentScrollY;
+                headerTicking = false;
+            };
+
+            window.addEventListener('scroll', () => {
+                if (headerTicking) return;
+                headerTicking = true;
+                window.requestAnimationFrame(updateHeaderVisibility);
+            }, { passive: true });
+        })();
+    </script>
+HTML;
+    echo "\n";
+}

@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/site.php';
 require_once __DIR__ . '/includes/security.php';
+require_once __DIR__ . '/includes/front-header.php';
 
 security_headers(false);
 csrf_token();
@@ -72,27 +73,7 @@ $whatsapp_link      = $settings['whatsapp_link'];
             font-style: normal;
             font-display: swap;
         }
-        .site-logo, .site-logo * { font-family: 'Bellefair', Georgia, serif !important; font-weight: 400; }
-        .site-logo { line-height: 1; }
-        .site-logo-name {
-            display: block;
-            margin: 0;
-            font-family: 'Bellefair', Georgia, serif !important;
-            font-size: 26px;
-            letter-spacing: .035em;
-            line-height: .9 !important;
-            text-transform: uppercase;
-        }
-        .site-logo-subtitle {
-            display: block;
-            margin: 0;
-            padding-top: 3px;
-            font-family: 'Bellefair', Georgia, serif !important;
-            font-size: 10px;
-            letter-spacing: .18em;
-            line-height: 1 !important;
-            text-transform: uppercase;
-        }
+<?php render_front_header_styles(); ?>
         .faq-content {
             display: grid;
             grid-template-rows: 0fr;
@@ -111,11 +92,6 @@ $whatsapp_link      = $settings['whatsapp_link'];
         main > article > section + section,
         main + footer {
             border-top: 1px solid #6B181D;
-        }
-        .floating-header {
-            border-radius: 10px;
-            background: linear-gradient(90deg, rgba(47, 19, 13, .58), rgba(47, 19, 13, .34));
-            box-shadow: 0 20px 62px rgba(18, 7, 5, .22);
         }
         .hero-base {
             background:
@@ -155,9 +131,6 @@ $whatsapp_link      = $settings['whatsapp_link'];
             line-height: .8;
         }
         @media (max-width: 767px) {
-            .floating-header {
-                background: rgba(47, 19, 13, .68);
-            }
             .hero-photo {
                 width: 100%;
                 max-width: 100%;
@@ -193,38 +166,7 @@ $whatsapp_link      = $settings['whatsapp_link'];
 <?php render_jost_weight_cap_styles(); ?>
 </head>
 <body class="bg-bordo text-cream font-sans antialiased overflow-x-hidden">
-    <header class="fixed inset-x-0 top-4 z-50 px-4 sm:top-6">
-        <div class="floating-header mx-auto flex min-h-16 max-w-7xl items-center justify-between gap-6 border border-cream/15 px-5 py-3 backdrop-blur-xl lg:min-h-20 lg:px-8">
-            <a href="#inicio" class="site-logo text-cream">
-                <span class="site-logo-name">Gabriela Pita</span>
-                <span class="site-logo-subtitle">Advogados Associados</span>
-            </a>
-            <nav class="ml-auto hidden items-center gap-7 text-[11px] font-bold uppercase tracking-[0.18em] text-cream/80 lg:flex">
-                <a class="transition hover:text-sand" href="#sobre">Quem sou eu?</a>
-                <a class="transition hover:text-sand" href="#servicos">Serviços</a>
-                <a class="transition hover:text-sand" href="#diferenciais">Diferenciais</a>
-                <a class="transition hover:text-sand" href="#duvidas">Dúvidas</a>
-                <a class="transition hover:text-sand" href="blog.php">Blog</a>
-            </nav>
-            <a href="<?php echo e($whatsapp_link); ?>" target="_blank" rel="noopener" class="whatsapp-cta soft-radius hidden items-center gap-2 border border-sand bg-sand px-5 py-3 text-[11px] font-bold uppercase tracking-[0.16em] text-wineDark transition hover:border-cream hover:bg-cream sm:inline-flex">
-                Falar com especialista
-            </a>
-            <button id="menu-btn" class="soft-radius grid h-10 w-10 place-items-center border border-cream/25 text-cream lg:hidden" aria-label="Abrir menu">
-                <?php echo ph_icon('list', 'text-2xl leading-none'); ?>
-            </button>
-        </div>
-        <div id="mobile-menu" class="mx-auto mt-3 hidden max-w-7xl rounded-[10px] border border-cream/15 bg-bordo/70 px-5 py-5 shadow-2xl backdrop-blur-xl lg:hidden">
-            <nav class="grid gap-4 text-sm font-semibold text-cream">
-                <a href="#sobre">Quem sou eu?</a>
-                <a href="#servicos">Serviços</a>
-                <a href="#diferenciais">Diferenciais</a>
-                <a href="#duvidas">Dúvidas</a>
-                <a href="blog.php">Blog</a>
-                <a href="#contato">Entre em contato</a>
-                <a href="<?php echo e($whatsapp_link); ?>" target="_blank" rel="noopener" class="whatsapp-cta soft-radius inline-flex items-center justify-center gap-2 border border-sand bg-sand px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] text-wineDark transition hover:border-cream hover:bg-cream">Falar com especialista</a>
-            </nav>
-        </div>
-    </header>
+<?php render_front_header($settings, true); ?>
 
     <main>
         <section id="inicio" class="hero-base relative min-h-[760px] overflow-hidden text-cream sm:min-h-screen">
@@ -283,7 +225,7 @@ $whatsapp_link      = $settings['whatsapp_link'];
                     <div class="soft-radius absolute -bottom-2 right-0 z-10 w-[58%] max-w-[19rem] overflow-hidden bg-bordo shadow-2xl shadow-bordoDeep/45 sm:-right-8 lg:-right-10">
                         <img src="image/foto2.webp" alt="Gabriela Pita em atendimento no escritório" class="aspect-[4/3] w-full object-cover object-center grayscale">
                     </div>
-                    <div class="soft-radius absolute left-0 top-1/2 hidden h-12 w-12 -translate-x-1/2 -translate-y-1/2 place-items-center border border-sand/35 bg-cream/12 text-sand shadow-xl backdrop-blur sm:grid">
+                    <div class="soft-radius absolute left-0 top-1/2 hidden h-12 w-12 -translate-x-1/2 -translate-y-1/2 place-items-center border border-bordoDeep/70 bg-bordoDeep/55 text-sand shadow-xl backdrop-blur sm:grid">
                         <?php echo ph_icon('scales', 'text-2xl leading-none'); ?>
                     </div>
                 </div>
@@ -337,7 +279,7 @@ $whatsapp_link      = $settings['whatsapp_link'];
                         <img src="image/foto4.png" alt="Estátua da justiça" class="aspect-[4/5] w-full object-cover object-center">
                         <div class="absolute inset-0 bg-gradient-to-t from-bordo/55 via-bordoDeep/12 to-transparent"></div>
                     </div>
-                    <div class="soft-radius absolute left-0 top-1/2 hidden h-12 w-12 -translate-x-1/2 -translate-y-1/2 place-items-center bg-cream/14 text-sand shadow-xl backdrop-blur sm:grid">
+                    <div class="soft-radius absolute left-0 top-1/2 hidden h-12 w-12 -translate-x-1/2 -translate-y-1/2 place-items-center border border-bordoDeep/70 bg-bordoDeep/55 text-sand shadow-xl backdrop-blur sm:grid">
                         <?php echo ph_icon('scales', 'text-2xl leading-none'); ?>
                     </div>
                     <div class="soft-radius absolute bottom-6 right-4 w-[17.5rem] max-w-[calc(100%-2rem)] bg-bordo/90 px-5 py-4 text-cream shadow-xl backdrop-blur-md sm:right-6">
@@ -603,11 +545,8 @@ $whatsapp_link      = $settings['whatsapp_link'];
         <div class="mx-auto mt-10 max-w-7xl px-5 text-xs text-cream/45 lg:px-8 reveal">© <?php echo date('Y'); ?> <?php echo e($nome_escritorio); ?>. Todos os direitos reservados.</div>
     </footer>
 
+<?php render_front_header_script(); ?>
     <script>
-        document.getElementById('menu-btn')?.addEventListener('click', () => {
-            document.getElementById('mobile-menu')?.classList.toggle('hidden');
-        });
-
         document.querySelectorAll('[data-faq]').forEach((item) => {
             item.addEventListener('toggle', () => {
                 if (!item.open) return;
