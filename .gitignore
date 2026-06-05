@@ -4,6 +4,7 @@ backup/
 .env
 .env.*
 !.env.example
+config/database.php
 node_modules/
 vendor/
 .DS_Store
