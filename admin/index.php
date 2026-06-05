@@ -1,0 +1,48 @@
+<?php
+require_once __DIR__ . '/../includes/auth.php';
+require_admin();
+
+$pdo = db();
+$postCount = 0;
+$publishedCount = 0;
+
+if ($pdo) {
+    try {
+        $postCount = (int) $pdo->query('SELECT COUNT(*) FROM blog_posts')->fetchColumn();
+        $publishedCount = (int) $pdo->query('SELECT COUNT(*) FROM blog_posts WHERE status = "published"')->fetchColumn();
+    } catch (Throwable $e) {
+        $postCount = 0;
+        $publishedCount = 0;
+    }
+}
+?>
+<?php include __DIR__ . '/_header.php'; ?>
+<main class="wrap">
+    <h1>Painel administrativo</h1>
+    <?php if (!$pdo): ?>
+        <div class="notice error">Banco não conectado. Confira os dados em <strong>config/database.php</strong> e importe o arquivo <strong>database.sql</strong> no phpMyAdmin.</div>
+    <?php endif; ?>
+    <div class="grid">
+        <section class="card stack">
+            <h2>Dados do site</h2>
+            <p class="muted">Edite WhatsApp, OAB, nome do escritório, endereço e links principais.</p>
+            <a class="btn btn-primary" href="settings.php">Editar dados</a>
+        </section>
+        <section class="card stack">
+            <h2>SEO</h2>
+            <p class="muted">Configure títulos, descrições, palavras-chave, compartilhamento e dados estruturados.</p>
+            <a class="btn btn-primary" href="seo.php">Editar SEO</a>
+        </section>
+        <section class="card stack">
+            <h2>E-mail</h2>
+            <p class="muted">Configure SMTP, remetente, destinatário e teste a conexão do envio dos formulários.</p>
+            <a class="btn btn-primary" href="email.php">Editar e-mail</a>
+        </section>
+        <section class="card stack">
+            <h2>Blog</h2>
+            <p class="muted"><?php echo $publishedCount; ?> publicado(s) de <?php echo $postCount; ?> post(s) cadastrado(s).</p>
+            <a class="btn btn-primary" href="posts.php">Gerenciar posts</a>
+        </section>
+    </div>
+</main>
+<?php include __DIR__ . '/_footer.php'; ?>

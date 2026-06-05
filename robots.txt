@@ -1,0 +1,17 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /backup/
+Disallow: /config/
+Disallow: /includes/
+Disallow: /scripts/
+Disallow: /vendor/
+Disallow: /database.sql
+Disallow: /docker-compose.yml
+Disallow: /Dockerfile
+Disallow: /gabriela-site.zip
+Disallow: /*.sql$
+Disallow: /*.zip$
+
+Allow: /
+
+Sitemap: https://gabrielapitaadvogados.com.br/sitemap.php
