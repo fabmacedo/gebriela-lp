@@ -221,11 +221,14 @@ $areas = [
                         <p class="mt-6 max-w-md text-base leading-8 text-ink/65">Você não precisa ter tudo para iniciar uma conversa. Mas organizar o que já existe ajuda a compreender o caso com mais clareza.</p>
                         <p class="soft-radius mt-8 border border-wine/12 bg-white p-5 text-sm leading-7 text-ink/65"><strong class="text-wineDark">Antes de tudo:</strong> priorize seu cuidado médico e preserve apenas documentos e registros obtidos de forma lícita.</p>
                     </aside>
-                    <div class="grid gap-3 sm:grid-cols-2 reveal">
+                    <div class="relative grid gap-5 pl-8 before:absolute before:left-[15px] before:top-4 before:h-[calc(100%-2rem)] before:w-px before:bg-wine/20 reveal" data-document-timeline>
                         <?php foreach ($documents as $index => $item): ?>
-                            <article class="soft-radius flex gap-4 border border-wine/10 bg-white p-5">
-                                <span class="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-wine text-xs font-bold text-cream"><?php echo str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT); ?></span>
-                                <div><h3 class="font-serif text-xl leading-tight"><?php echo e($item[0]); ?></h3><p class="mt-2 text-xs leading-6 text-ink/60"><?php echo e($item[1]); ?></p></div>
+                            <article class="soft-radius relative grid gap-4 border border-wine/10 bg-white p-6 shadow-[0_16px_42px_rgba(63,7,10,.06)] transition hover:-translate-y-1 hover:border-wine/25 md:grid-cols-[44px_1fr] md:gap-5">
+                                <span class="absolute -left-8 top-7 z-10 grid h-8 w-8 place-items-center rounded-full border-[5px] border-paper bg-wine text-[10px] font-bold text-cream md:static md:h-11 md:w-11 md:border-0 md:text-xs"><?php echo str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT); ?></span>
+                                <div>
+                                    <h3 class="font-serif text-2xl leading-tight text-wineDark"><?php echo e($item[0]); ?></h3>
+                                    <p class="mt-2 text-sm leading-6 text-ink/60"><?php echo e($item[1]); ?></p>
+                                </div>
                             </article>
                         <?php endforeach; ?>
                     </div>

@@ -26,4 +26,10 @@ if ($missing !== []) {
     exit(1);
 }
 
+$documentosPattern = '/<section id="documentos".*?<\/section>/s';
+if (preg_match($documentosPattern, $index, $matches) !== 1 || !str_contains($matches[0], 'data-document-timeline')) {
+    fwrite(STDERR, "A seção documentos deve usar o layout de linha do tempo.\n");
+    exit(1);
+}
+
 echo "Blocos laterais sticky verificados.\n";
