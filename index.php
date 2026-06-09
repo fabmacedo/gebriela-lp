@@ -184,10 +184,10 @@ $whatsapp_link      = $settings['whatsapp_link'];
                         Defendemos os direitos dos trabalhadores e oferecemos soluções jurídicas seguras para empresas, com atuação técnica, transparente e eficiente.
                     </p>
                     <div class="mt-10 flex flex-row items-center gap-3">
-                        <a href="<?php echo e($whatsapp_link); ?>" target="_blank" rel="noopener" class="whatsapp-cta soft-radius inline-flex min-h-14 items-center justify-center gap-2 border border-sand bg-sand px-7 py-4 text-xs font-bold uppercase tracking-[0.16em] text-wineDark transition hover:border-cream hover:bg-cream">
+                        <a href="<?php echo e($whatsapp_link); ?>" target="_blank" rel="noopener" class="whatsapp-cta soft-radius inline-flex min-h-14 items-center justify-center gap-2 border border-white bg-white px-7 py-4 text-xs font-bold uppercase tracking-[0.16em] text-wineDark transition hover:bg-paper">
                             Falar com especialista
                         </a>
-                        <a href="#sobre" aria-label="Ir para a próxima seção" class="soft-radius grid h-14 w-14 shrink-0 place-items-center border border-sand text-sand transition hover:bg-sand hover:text-wineDark">
+                        <a href="#sobre" aria-label="Ir para a próxima seção" class="soft-radius grid h-14 w-14 shrink-0 place-items-center border border-white bg-white text-wineDark transition hover:bg-paper">
                             <?php echo ph_icon('caret-down', 'text-xl leading-none'); ?>
                         </a>
                     </div>
@@ -319,7 +319,7 @@ $whatsapp_link      = $settings['whatsapp_link'];
                         <p class="mb-4 text-[11px] font-bold uppercase tracking-[0.2em] text-wine/70">Avaliações no Google</p>
                         <h2 class="max-w-2xl font-serif text-4xl leading-tight text-wineDark md:text-6xl">Confiança construída em cada atendimento.</h2>
                     </div>
-                    <a href="<?php echo e($google_reviews_url); ?>" target="_blank" rel="noopener" class="soft-radius inline-flex items-center justify-center gap-2 border border-wine px-6 py-3 text-xs font-bold uppercase tracking-[0.16em] text-wine transition hover:bg-wine hover:text-cream">
+                    <a href="<?php echo e($google_reviews_url); ?>" target="_blank" rel="noopener" class="soft-radius inline-flex items-center justify-center gap-2 border border-wine bg-white px-6 py-3 text-xs font-bold uppercase tracking-[0.16em] text-wine transition hover:bg-paper">
                         Ver no Google
                         <?php echo ph_icon('arrow-up-right', 'text-base leading-none'); ?>
                     </a>
@@ -444,7 +444,7 @@ $whatsapp_link      = $settings['whatsapp_link'];
                                 <label class="mb-2 block text-[10px] font-bold uppercase tracking-[0.16em] text-wine/60">Mensagem / relato breve</label>
                                 <textarea id="form-message" rows="5" class="soft-radius w-full border border-wine/15 bg-paper/65 px-4 py-3 text-sm text-wineDark outline-none placeholder:text-ink/42 transition focus:border-wine/45 focus:ring-2 focus:ring-wine/10" placeholder="Como podemos ajudar?"></textarea>
                             </div>
-                        <button type="submit" class="soft-radius bg-wine px-6 py-4 text-xs font-bold uppercase tracking-[0.16em] text-cream transition hover:bg-wineDark">Enviar solicitação de atendimento</button>
+                        <button type="submit" class="soft-radius border border-wine bg-white px-6 py-4 text-xs font-bold uppercase tracking-[0.16em] text-wine transition hover:bg-paper">Enviar solicitação de atendimento</button>
                         <p id="form-status" class="hidden text-sm leading-relaxed"></p>
                     </div>
                 </form>
@@ -500,7 +500,7 @@ $whatsapp_link      = $settings['whatsapp_link'];
                         <p class="mb-4 text-[11px] font-bold uppercase tracking-[0.2em] text-sand">Blog</p>
                         <h2 class="font-serif text-4xl leading-tight text-cream md:text-5xl">Conteúdo jurídico.</h2>
                     </div>
-                    <a href="blog.php" class="soft-radius inline-flex items-center justify-center border border-sand px-6 py-3 text-xs font-bold uppercase tracking-[0.16em] text-sand transition hover:bg-sand hover:text-wineDark">Ver todos</a>
+                    <a href="blog.php" class="soft-radius inline-flex items-center justify-center border border-white bg-white px-6 py-3 text-xs font-bold uppercase tracking-[0.16em] text-wineDark transition hover:bg-paper">Ver todos</a>
                 </div>
                 <?php if ($blog_posts): ?>
                     <div class="grid gap-5 md:grid-cols-3">
@@ -518,7 +518,7 @@ $whatsapp_link      = $settings['whatsapp_link'];
         </section>
     </main>
 
-    <a href="<?php echo e($whatsapp_link); ?>" target="_blank" rel="noopener" aria-label="Falar no WhatsApp" class="fixed bottom-5 right-5 z-50 inline-flex h-14 items-center justify-center gap-3 rounded-[10px] border border-sand bg-sand px-4 text-wineDark shadow-[0_18px_48px_rgba(38,3,5,.24)] transition hover:border-cream hover:bg-cream focus:outline-none focus:ring-2 focus:ring-sand/45 sm:px-5">
+    <a href="<?php echo e($whatsapp_link); ?>" target="_blank" rel="noopener" aria-label="Falar no WhatsApp" class="fixed bottom-5 right-5 z-50 inline-flex h-14 items-center justify-center gap-3 rounded-[10px] border border-white bg-white px-4 text-wineDark shadow-[0_18px_48px_rgba(38,3,5,.24)] transition hover:bg-paper focus:outline-none focus:ring-2 focus:ring-white/45 sm:px-5">
         <?php echo ph_icon('whatsapp-logo', 'whatsapp-icon text-2xl leading-none'); ?>
         <span class="hidden text-[11px] font-bold uppercase tracking-[0.16em] sm:inline">WhatsApp</span>
     </a>

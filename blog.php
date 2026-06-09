@@ -215,8 +215,8 @@ $blogCanonical = 'blog.php';
                 button.type = 'button';
                 button.textContent = String(page);
                 button.className = page === blogCurrentPage
-                    ? 'soft-radius grid h-10 w-10 place-items-center border border-[#8A252B] bg-bordo text-sm text-cream transition'
-                    : 'soft-radius grid h-10 w-10 place-items-center border border-[#6B181D] text-sm text-sand transition hover:border-[#8A252B] hover:bg-bordo/35';
+                    ? 'soft-radius grid h-10 w-10 place-items-center border border-white bg-white text-sm text-wineDark transition'
+                    : 'soft-radius grid h-10 w-10 place-items-center border border-white bg-white text-sm text-wineDark transition hover:bg-paper';
                 button.setAttribute('aria-label', `Ir para página ${page}`);
                 if (page === blogCurrentPage) {
                     button.setAttribute('aria-current', 'page');

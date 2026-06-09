@@ -12,9 +12,9 @@ function render_front_header_styles(): void
         }
         .site-header-logo {
             display: block;
-            width: 190px;
+            width: 225px;
             height: auto;
-            max-height: 58px;
+            max-height: 62px;
             object-fit: contain;
             object-position: left center;
         }
@@ -42,7 +42,7 @@ function render_front_header_styles(): void
             isolation: isolate;
             overflow: hidden;
             border-radius: 10px;
-            background: rgba(215, 194, 168, .92);
+            background: #fff;
             box-shadow: 0 20px 62px rgba(18, 7, 5, .22), inset 0 1px 0 rgba(255, 255, 255, .48);
         }
         .floating-header::before {
@@ -51,10 +51,10 @@ function render_front_header_styles(): void
             inset: 0;
             z-index: 0;
             background:
-                linear-gradient(90deg, rgba(215, 194, 168, .96), rgba(244, 237, 228, .9));
-            background-color: rgba(215, 194, 168, .84);
-            -webkit-backdrop-filter: blur(96px) saturate(130%) brightness(1.04);
-            backdrop-filter: blur(96px) saturate(130%) brightness(1.04);
+                linear-gradient(90deg, #fff, #fff);
+            background-color: #fff;
+            -webkit-backdrop-filter: none;
+            backdrop-filter: none;
         }
         .floating-header > * {
             position: relative;
@@ -74,16 +74,16 @@ function render_front_header_styles(): void
         }
         @media (max-width: 767px) {
             .site-header-logo {
-                width: 155px;
-                max-height: 50px;
+                width: 180px;
+                max-height: 54px;
             }
             .floating-header {
-                background: rgba(215, 194, 168, .95);
+                background: #fff;
             }
             .floating-header::before {
                 background:
-                    linear-gradient(90deg, rgba(215, 194, 168, .97), rgba(244, 237, 228, .93));
-                background-color: rgba(215, 194, 168, .88);
+                    linear-gradient(90deg, #fff, #fff);
+                background-color: #fff;
             }
         }
 HTML;
@@ -112,11 +112,11 @@ function render_front_header(array $settings, bool $isHome = false): void
             <a href="<?php echo e($whatsappLink); ?>" target="_blank" rel="noopener" class="whatsapp-cta soft-radius hidden items-center gap-2 border border-bordo bg-bordo px-5 py-3 text-[11px] font-bold uppercase tracking-[0.16em] text-cream transition hover:border-wineDark hover:bg-wineDark sm:inline-flex">
                 Falar com especialista
             </a>
-            <button id="menu-btn" class="soft-radius grid h-10 w-10 place-items-center border border-bordo/25 text-bordo lg:hidden" aria-label="Abrir menu">
+            <button id="menu-btn" class="soft-radius grid h-10 w-10 place-items-center border border-bordo/25 bg-white text-bordo lg:hidden" aria-label="Abrir menu">
                 <?php echo ph_icon('list', 'text-2xl leading-none'); ?>
             </button>
         </div>
-        <div id="mobile-menu" class="mx-auto mt-3 hidden max-w-7xl rounded-[10px] border border-bordo/15 bg-sand/95 px-5 py-5 shadow-2xl backdrop-blur-2xl lg:hidden">
+        <div id="mobile-menu" class="mx-auto mt-3 hidden max-w-7xl rounded-[10px] border border-bordo/15 bg-white px-5 py-5 shadow-2xl lg:hidden">
             <nav class="grid gap-4 text-sm font-semibold text-wineDark">
                 <a href="<?php echo e($sectionPrefix); ?>sobre">Quem sou eu?</a>
                 <a href="<?php echo e($sectionPrefix); ?>servicos">Serviços</a>

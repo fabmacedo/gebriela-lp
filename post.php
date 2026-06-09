@@ -141,13 +141,13 @@ $postCanonical = $post ? 'post.php?slug=' . $post['slug'] : 'blog.php';
                     <div class="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[minmax(0,760px)_minmax(220px,1fr)] lg:px-8 reveal">
                         <div>
                             <div class="whitespace-pre-line font-serif text-2xl leading-10 text-cream md:text-3xl"><?php echo e($post['content']); ?></div>
-                            <button type="button" onclick="if (history.length > 1) { history.back(); } else { window.location.href = 'blog.php'; }" class="soft-radius mt-12 inline-flex border border-sand px-6 py-3 text-xs font-bold uppercase tracking-[0.16em] text-sand transition hover:bg-sand hover:text-wineDark">Voltar</button>
+                            <button type="button" onclick="if (history.length > 1) { history.back(); } else { window.location.href = 'blog.php'; }" class="soft-radius mt-12 inline-flex border border-white bg-white px-6 py-3 text-xs font-bold uppercase tracking-[0.16em] text-wineDark transition hover:bg-paper">Voltar</button>
                         </div>
                         <aside class="soft-radius h-fit border border-[#6B181D] bg-bordoDeep/35 p-7 text-cream lg:sticky lg:top-24">
                             <p class="text-[10px] font-bold uppercase tracking-[0.18em] text-sand/70">Conteúdo jurídico</p>
                             <p class="mt-5 font-serif text-2xl leading-tight text-cream">Precisa de uma análise individual?</p>
                             <p class="mt-4 text-sm leading-7 text-cream/62">Cada caso exige avaliação dos documentos, prazos e provas disponíveis.</p>
-                            <a href="<?php echo e($whatsapp_link); ?>" target="_blank" rel="noopener" class="soft-radius mt-6 inline-flex items-center justify-center gap-2 border border-sand px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] text-sand transition hover:bg-sand hover:text-wineDark">Falar com especialista</a>
+                            <a href="<?php echo e($whatsapp_link); ?>" target="_blank" rel="noopener" class="soft-radius mt-6 inline-flex items-center justify-center gap-2 border border-white bg-white px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] text-wineDark transition hover:bg-paper">Falar com especialista</a>
                         </aside>
                     </div>
                 </section>
@@ -157,7 +157,7 @@ $postCanonical = $post ? 'post.php?slug=' . $post['slug'] : 'blog.php';
                 <div class="mx-auto max-w-3xl px-5 text-center lg:px-8 reveal">
                     <h1 class="font-serif text-4xl text-cream">Artigo não encontrado</h1>
                     <p class="mt-4 text-cream/70">O conteúdo pode ter sido removido ou ainda não está publicado.</p>
-                    <button type="button" onclick="if (history.length > 1) { history.back(); } else { window.location.href = 'blog.php'; }" class="soft-radius mt-8 inline-flex border border-sand px-6 py-3 text-xs font-bold uppercase tracking-[0.16em] text-sand transition hover:bg-sand hover:text-wineDark">Voltar</button>
+                    <button type="button" onclick="if (history.length > 1) { history.back(); } else { window.location.href = 'blog.php'; }" class="soft-radius mt-8 inline-flex border border-white bg-white px-6 py-3 text-xs font-bold uppercase tracking-[0.16em] text-wineDark transition hover:bg-paper">Voltar</button>
                 </div>
             </section>
         <?php endif; ?>
