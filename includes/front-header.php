@@ -4,7 +4,20 @@ function render_front_header_styles(): void
 {
     echo <<<'HTML'
         .site-logo, .site-logo * { font-family: 'Bellefair', Georgia, serif !important; font-weight: 400; }
-        .site-logo { line-height: 1; }
+        .site-logo {
+            display: inline-flex;
+            flex: 0 0 auto;
+            align-items: center;
+            line-height: 1;
+        }
+        .site-header-logo {
+            display: block;
+            width: 190px;
+            height: auto;
+            max-height: 58px;
+            object-fit: contain;
+            object-position: left center;
+        }
         .site-logo-name {
             display: block;
             margin: 0;
@@ -29,8 +42,8 @@ function render_front_header_styles(): void
             isolation: isolate;
             overflow: hidden;
             border-radius: 10px;
-            background: rgba(47, 19, 13, .88);
-            box-shadow: 0 20px 62px rgba(18, 7, 5, .28), inset 0 1px 0 rgba(255, 255, 255, .12);
+            background: rgba(215, 194, 168, .92);
+            box-shadow: 0 20px 62px rgba(18, 7, 5, .22), inset 0 1px 0 rgba(255, 255, 255, .48);
         }
         .floating-header::before {
             content: "";
@@ -38,14 +51,17 @@ function render_front_header_styles(): void
             inset: 0;
             z-index: 0;
             background:
-                linear-gradient(90deg, rgba(47, 19, 13, .96), rgba(47, 19, 13, .9));
-            background-color: rgba(63, 7, 10, .78);
-            -webkit-backdrop-filter: blur(96px) saturate(145%) brightness(.62);
-            backdrop-filter: blur(96px) saturate(145%) brightness(.62);
+                linear-gradient(90deg, rgba(215, 194, 168, .96), rgba(244, 237, 228, .9));
+            background-color: rgba(215, 194, 168, .84);
+            -webkit-backdrop-filter: blur(96px) saturate(130%) brightness(1.04);
+            backdrop-filter: blur(96px) saturate(130%) brightness(1.04);
         }
         .floating-header > * {
             position: relative;
             z-index: 1;
+        }
+        .floating-header nav a:hover {
+            color: #3F070A;
         }
         .site-header {
             transition: transform .28s ease, opacity .22s ease;
@@ -57,13 +73,17 @@ function render_front_header_styles(): void
             transform: translateY(calc(-100% - 32px));
         }
         @media (max-width: 767px) {
+            .site-header-logo {
+                width: 155px;
+                max-height: 50px;
+            }
             .floating-header {
-                background: rgba(47, 19, 13, .92);
+                background: rgba(215, 194, 168, .95);
             }
             .floating-header::before {
                 background:
-                    linear-gradient(90deg, rgba(47, 19, 13, .97), rgba(47, 19, 13, .92));
-                background-color: rgba(63, 7, 10, .84);
+                    linear-gradient(90deg, rgba(215, 194, 168, .97), rgba(244, 237, 228, .93));
+                background-color: rgba(215, 194, 168, .88);
             }
         }
 HTML;
@@ -78,34 +98,33 @@ function render_front_header(array $settings, bool $isHome = false): void
     $officeName = $settings['nome_escritorio'] ?? 'Gabriela Pita Advogados Associados';
     ?>
     <header id="site-header" class="site-header fixed inset-x-0 top-4 z-50 px-4 sm:top-6">
-        <div class="floating-header mx-auto flex min-h-16 max-w-7xl items-center justify-between gap-6 border border-cream/15 px-5 py-3 lg:min-h-20 lg:px-8">
-            <a href="<?php echo e($logoHref); ?>" class="site-logo text-cream" aria-label="<?php echo e($officeName); ?> Home">
-                <span class="site-logo-name">Gabriela Pita</span>
-                <span class="site-logo-subtitle">Advogados Associados</span>
+        <div class="floating-header mx-auto flex min-h-16 max-w-7xl items-center justify-between gap-6 border border-bordo/15 px-5 py-3 lg:min-h-20 lg:px-8">
+            <a href="<?php echo e($logoHref); ?>" class="site-logo text-wineDark" aria-label="<?php echo e($officeName); ?> Home">
+                <img src="image/logo-gabriela-pita.png" alt="" class="site-header-logo">
             </a>
-            <nav class="ml-auto hidden items-center gap-7 text-[11px] font-bold uppercase tracking-[0.18em] text-cream/80 lg:flex">
+            <nav class="ml-auto hidden items-center gap-7 text-[11px] font-bold uppercase tracking-[0.18em] text-wineDark/80 lg:flex">
                 <a class="transition hover:text-sand" href="<?php echo e($sectionPrefix); ?>sobre">Quem sou eu?</a>
                 <a class="transition hover:text-sand" href="<?php echo e($sectionPrefix); ?>servicos">Serviços</a>
                 <a class="transition hover:text-sand" href="<?php echo e($sectionPrefix); ?>diferenciais">Diferenciais</a>
                 <a class="transition hover:text-sand" href="<?php echo e($sectionPrefix); ?>duvidas">Dúvidas</a>
                 <a class="transition hover:text-sand" href="blog.php">Blog</a>
             </nav>
-            <a href="<?php echo e($whatsappLink); ?>" target="_blank" rel="noopener" class="whatsapp-cta soft-radius hidden items-center gap-2 border border-sand bg-sand px-5 py-3 text-[11px] font-bold uppercase tracking-[0.16em] text-wineDark transition hover:border-cream hover:bg-cream sm:inline-flex">
+            <a href="<?php echo e($whatsappLink); ?>" target="_blank" rel="noopener" class="whatsapp-cta soft-radius hidden items-center gap-2 border border-bordo bg-bordo px-5 py-3 text-[11px] font-bold uppercase tracking-[0.16em] text-cream transition hover:border-wineDark hover:bg-wineDark sm:inline-flex">
                 Falar com especialista
             </a>
-            <button id="menu-btn" class="soft-radius grid h-10 w-10 place-items-center border border-cream/25 text-cream lg:hidden" aria-label="Abrir menu">
+            <button id="menu-btn" class="soft-radius grid h-10 w-10 place-items-center border border-bordo/25 text-bordo lg:hidden" aria-label="Abrir menu">
                 <?php echo ph_icon('list', 'text-2xl leading-none'); ?>
             </button>
         </div>
-        <div id="mobile-menu" class="mx-auto mt-3 hidden max-w-7xl rounded-[10px] border border-cream/15 bg-bordo/45 px-5 py-5 shadow-2xl backdrop-blur-2xl lg:hidden">
-            <nav class="grid gap-4 text-sm font-semibold text-cream">
+        <div id="mobile-menu" class="mx-auto mt-3 hidden max-w-7xl rounded-[10px] border border-bordo/15 bg-sand/95 px-5 py-5 shadow-2xl backdrop-blur-2xl lg:hidden">
+            <nav class="grid gap-4 text-sm font-semibold text-wineDark">
                 <a href="<?php echo e($sectionPrefix); ?>sobre">Quem sou eu?</a>
                 <a href="<?php echo e($sectionPrefix); ?>servicos">Serviços</a>
                 <a href="<?php echo e($sectionPrefix); ?>diferenciais">Diferenciais</a>
                 <a href="<?php echo e($sectionPrefix); ?>duvidas">Dúvidas</a>
                 <a href="blog.php">Blog</a>
                 <a href="<?php echo e($sectionPrefix); ?>contato">Entre em contato</a>
-                <a href="<?php echo e($whatsappLink); ?>" target="_blank" rel="noopener" class="whatsapp-cta soft-radius inline-flex items-center justify-center gap-2 border border-sand bg-sand px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] text-wineDark transition hover:border-cream hover:bg-cream">Falar com especialista</a>
+                <a href="<?php echo e($whatsappLink); ?>" target="_blank" rel="noopener" class="whatsapp-cta soft-radius inline-flex items-center justify-center gap-2 border border-bordo bg-bordo px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] text-cream transition hover:border-wineDark hover:bg-wineDark">Falar com especialista</a>
             </nav>
         </div>
     </header>
