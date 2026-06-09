@@ -85,7 +85,7 @@ function get_site_settings(): array
         'smtp_from_email' => 'contato@gabrielapitaadvogados.com.br',
         'smtp_from_name' => 'Gabriela Pita Advogados Associados',
         'smtp_to_email' => 'contato@gabrielapitaadvogados.com.br',
-        'seo_site_url' => 'https://gabrielapitaadvogados.com.br/',
+        'seo_site_url' => 'https://trabalhista.gabrielapitaadvogados.com.br/',
         'seo_home_title' => 'Acidente de Trabalho e Doença Ocupacional | Gabriela Pita',
         'seo_home_description' => 'Orientação jurídica humanizada para trabalhadores que sofreram acidente de trabalho ou enfrentam doença física ou emocional relacionada ao trabalho.',
         'seo_home_keywords' => 'acidente de trabalho, doença ocupacional, burnout relacionado ao trabalho, LER DORT, CAT, estabilidade acidentária, auxílio-acidente, advogado trabalhista',

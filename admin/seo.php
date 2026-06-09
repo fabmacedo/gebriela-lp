@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="grid">
                 <div>
                     <label for="seo_site_url">URL principal do site</label>
-                    <input id="seo_site_url" name="seo_site_url" type="url" value="<?php echo e($settings['seo_site_url'] ?? ''); ?>" placeholder="https://gabrielapitaadv.com.br">
+                    <input id="seo_site_url" name="seo_site_url" type="url" value="<?php echo e($settings['seo_site_url'] ?? ''); ?>" placeholder="https://trabalhista.gabrielapitaadvogados.com.br">
                 </div>
                 <div>
                     <label for="seo_author">Autor</label>
