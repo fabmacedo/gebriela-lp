@@ -223,8 +223,8 @@ $areas = [
                     </aside>
                     <div class="relative grid gap-5 pl-8 before:absolute before:left-[15px] before:top-4 before:h-[calc(100%-2rem)] before:w-px before:bg-wine/20 reveal" data-document-timeline>
                         <?php foreach ($documents as $index => $item): ?>
-                            <article class="soft-radius relative grid gap-4 border border-wine/10 bg-white p-6 shadow-[0_16px_42px_rgba(63,7,10,.06)] transition hover:-translate-y-1 hover:border-wine/25 md:grid-cols-[44px_1fr] md:gap-5">
-                                <span class="absolute -left-8 top-7 z-10 grid h-8 w-8 place-items-center rounded-full border-[5px] border-paper bg-wine text-[10px] font-bold text-cream md:static md:h-11 md:w-11 md:border-0 md:text-xs"><?php echo str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT); ?></span>
+                            <article class="soft-radius relative border border-wine/10 bg-white p-6 shadow-[0_16px_42px_rgba(63,7,10,.06)] transition hover:-translate-y-1 hover:border-wine/25">
+                                <span class="absolute -left-8 top-7 z-10 grid h-8 w-8 place-items-center rounded-full border-[5px] border-paper bg-wine text-[10px] font-bold text-cream"><?php echo str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT); ?></span>
                                 <div>
                                     <h3 class="font-serif text-2xl leading-tight text-wineDark"><?php echo e($item[0]); ?></h3>
                                     <p class="mt-2 text-sm leading-6 text-ink/60"><?php echo e($item[1]); ?></p>

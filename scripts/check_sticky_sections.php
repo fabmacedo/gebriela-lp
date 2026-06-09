@@ -32,4 +32,9 @@ if (preg_match($documentosPattern, $index, $matches) !== 1 || !str_contains($mat
     exit(1);
 }
 
+if (str_contains($matches[0], 'md:static')) {
+    fwrite(STDERR, "Os marcadores da linha do tempo de documentos devem permanecer alinhados na linha.\n");
+    exit(1);
+}
+
 echo "Blocos laterais sticky verificados.\n";
