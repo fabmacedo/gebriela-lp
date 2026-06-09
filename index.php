@@ -43,24 +43,6 @@ $rights = [
     ['Doença descoberta após a dispensa', 'A descoberta posterior não impede, por si só, que a relação com o trabalho seja analisada.', 'magnifying-glass'],
 ];
 
-$documents = [
-    ['Laudos, exames e atestados', 'Inclua receitas, relatórios médicos e documentos sobre tratamentos realizados.'],
-    ['Prontuários e histórico de atendimento', 'Registros ajudam a compreender quando os sintomas surgiram e como evoluíram.'],
-    ['CAT e documentos do INSS', 'Guarde decisões, cartas, comunicações e informações sobre benefícios.'],
-    ['Documentos do vínculo', 'Carteira de trabalho, contrato, holerites, rescisão e registros de função.'],
-    ['Fotos, vídeos e registros', 'Preserve materiais obtidos licitamente sobre o acidente ou o ambiente.'],
-    ['Mensagens e ordens de serviço', 'E-mails, escalas e conversas podem ajudar a reconstruir a rotina de trabalho.'],
-    ['Testemunhas', 'Anote nomes e formas de contato de pessoas que conheçam os fatos.'],
-    ['Linha do tempo', 'Registre datas de sintomas, consultas, afastamentos, acidentes e comunicações.'],
-];
-
-$steps = [
-    ['01', 'Escuta cuidadosa', 'Você conta o que aconteceu, como o trabalho afetou sua saúde e quais são suas principais dúvidas.'],
-    ['02', 'Organização dos documentos', 'Identificamos o que você já possui e quais informações podem ajudar a compreender o caso.'],
-    ['03', 'Análise individual', 'A relação com o trabalho e os caminhos possíveis são avaliados conforme os fatos e documentos.'],
-    ['04', 'Orientação clara', 'Você recebe uma explicação objetiva sobre alternativas, riscos e próximos passos.'],
-];
-
 $reviewCards = [
     ['name' => 'Gilvonete Felix', 'quote' => 'Uma experiência maravilhosa! Uma excelente advogada! Eu super indico.', 'date' => '3 meses atrás', 'initial' => 'G', 'avatar' => null, 'avatarClass' => 'bg-[#F27A1A] text-white'],
     ['name' => 'Ana Carolina', 'quote' => 'Ambiente agradável, advogados habilidosos, prestativos e Dra. Gabriela muito competente!', 'date' => '3 meses atrás', 'initial' => 'A', 'avatar' => 'image/reviews/ana-carolina-pedreira.png', 'avatarClass' => 'bg-wine text-cream'],
@@ -212,46 +194,6 @@ $areas = [
             </div>
         </section>
 
-        <section id="documentos" class="bg-paper py-20 text-wineDark md:py-28">
-            <div class="mx-auto max-w-7xl px-5 lg:px-8">
-                <div class="grid gap-12 lg:grid-cols-[.82fr_1.18fr] lg:gap-20">
-                    <aside class="reveal lg:sticky lg:top-28 lg:self-start">
-                        <p class="mb-4 text-[11px] font-bold uppercase tracking-[0.2em] text-wine/65">Preserve sua história</p>
-                        <h2 class="font-serif text-4xl leading-tight md:text-6xl">O que guardar desde agora.</h2>
-                        <p class="mt-6 max-w-md text-base leading-8 text-ink/65">Você não precisa ter tudo para iniciar uma conversa. Mas organizar o que já existe ajuda a compreender o caso com mais clareza.</p>
-                        <p class="soft-radius mt-8 border border-wine/12 bg-white p-5 text-sm leading-7 text-ink/65"><strong class="text-wineDark">Antes de tudo:</strong> priorize seu cuidado médico e preserve apenas documentos e registros obtidos de forma lícita.</p>
-                    </aside>
-                    <div class="relative grid gap-5 pl-8 before:absolute before:left-[15px] before:top-4 before:h-[calc(100%-2rem)] before:w-px before:bg-wine/20 reveal" data-document-timeline>
-                        <?php foreach ($documents as $index => $item): ?>
-                            <article class="soft-radius relative border border-wine/10 bg-white p-6 shadow-[0_16px_42px_rgba(63,7,10,.06)] transition hover:-translate-y-1 hover:border-wine/25">
-                                <span class="absolute -left-8 top-7 z-10 grid h-8 w-8 place-items-center rounded-full border-[5px] border-paper bg-wine text-[10px] font-bold text-cream"><?php echo str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT); ?></span>
-                                <div>
-                                    <h3 class="font-serif text-2xl leading-tight text-wineDark"><?php echo e($item[0]); ?></h3>
-                                    <p class="mt-2 text-sm leading-6 text-ink/60"><?php echo e($item[1]); ?></p>
-                                </div>
-                            </article>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="atendimento" class="bg-bordoDeep py-20 text-cream md:py-28">
-            <div class="mx-auto max-w-7xl px-5 lg:px-8">
-                <div class="max-w-3xl reveal"><p class="mb-4 text-[11px] font-bold uppercase tracking-[0.2em] text-sand">Como funciona</p><h2 class="font-serif text-4xl leading-tight md:text-6xl">Clareza para entender os próximos passos.</h2></div>
-                <div class="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-                    <?php foreach ($steps as $step): ?>
-                        <article class="soft-radius min-h-64 border border-[#6B181D] bg-bordo/40 p-7 reveal"><p class="font-serif text-4xl text-sand"><?php echo e($step[0]); ?>.</p><h3 class="mt-9 font-serif text-2xl"><?php echo e($step[1]); ?></h3><p class="mt-3 text-sm leading-7 text-cream/62"><?php echo e($step[2]); ?></p></article>
-                    <?php endforeach; ?>
-                </div>
-                <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 reveal">
-                    <?php foreach ([['Atendimento humanizado','Escuta respeitosa em um momento que pode ser difícil.'],['Análise individual','Cada caso é compreendido conforme sua própria história.'],['Comunicação clara','Explicações diretas sobre alternativas e riscos.'],['Online e presencial','Flexibilidade para iniciar o atendimento.']] as $item): ?>
-                        <div class="border-l border-sand/40 pl-5"><h3 class="font-serif text-xl"><?php echo e($item[0]); ?></h3><p class="mt-2 text-xs leading-6 text-cream/58"><?php echo e($item[1]); ?></p></div>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-        </section>
-
         <section id="avaliacoes" class="bg-paper py-20 text-wineDark md:py-28">
             <div class="mx-auto max-w-7xl px-5 lg:px-8">
                 <div class="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end reveal">
@@ -321,7 +263,7 @@ $areas = [
     <footer class="bg-bordoDeep py-12 text-cream">
         <div class="mx-auto grid max-w-7xl gap-10 px-5 md:grid-cols-3 lg:px-8">
             <div class="reveal"><p class="site-logo-name">Gabriela Pita</p><p class="site-logo-subtitle text-cream/55">Advogados Associados</p><p class="mt-5 text-xs text-cream/60"><?php echo e($oab_registro); ?></p></div>
-            <nav class="grid gap-2 text-xs uppercase tracking-[0.16em] text-cream/60 reveal"><a href="#situacoes" class="hover:text-cream">Situações atendidas</a><a href="#direitos" class="hover:text-cream">Entenda seus direitos</a><a href="#documentos" class="hover:text-cream">Documentos</a><a href="#duvidas" class="hover:text-cream">Dúvidas</a></nav>
+            <nav class="grid gap-2 text-xs uppercase tracking-[0.16em] text-cream/60 reveal"><a href="#situacoes" class="hover:text-cream">Situações atendidas</a><a href="#direitos" class="hover:text-cream">Entenda seus direitos</a><a href="#duvidas" class="hover:text-cream">Dúvidas</a></nav>
             <div class="grid content-start gap-3 text-sm text-cream/70 reveal"><a href="<?php echo e($whatsapp_link); ?>" target="_blank" rel="noopener">WhatsApp: <?php echo e($whatsapp_friendly); ?></a><a href="mailto:<?php echo e($email_contato); ?>"><?php echo e($email_contato); ?></a><p><?php echo e($endereco_local); ?></p></div>
         </div>
         <div class="mx-auto mt-10 max-w-7xl px-5 text-xs text-cream/45 lg:px-8 reveal">© <?php echo date('Y'); ?> <?php echo e($nome_escritorio); ?>. Todos os direitos reservados.</div>

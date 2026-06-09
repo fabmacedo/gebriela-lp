@@ -105,7 +105,6 @@ function render_front_header(array $settings, bool $isHome = false): void
             <nav class="ml-auto hidden items-center gap-7 text-[11px] font-bold uppercase tracking-[0.18em] text-wineDark/80 lg:flex">
                 <a class="transition hover:text-sand" href="<?php echo e($sectionPrefix); ?>situacoes">Situações atendidas</a>
                 <a class="transition hover:text-sand" href="<?php echo e($sectionPrefix); ?>direitos">Entenda seus direitos</a>
-                <a class="transition hover:text-sand" href="<?php echo e($sectionPrefix); ?>documentos">Documentos</a>
                 <a class="transition hover:text-sand" href="<?php echo e($sectionPrefix); ?>duvidas">Dúvidas</a>
             </nav>
             <a href="<?php echo e($whatsappLink); ?>" target="_blank" rel="noopener" class="whatsapp-cta soft-radius hidden items-center gap-2 border border-bordo bg-bordo px-5 py-3 text-[11px] font-bold uppercase tracking-[0.16em] text-cream transition hover:border-wineDark hover:bg-wineDark sm:inline-flex">
@@ -119,7 +118,6 @@ function render_front_header(array $settings, bool $isHome = false): void
             <nav class="grid gap-4 text-sm font-semibold text-wineDark">
                 <a href="<?php echo e($sectionPrefix); ?>situacoes">Situações atendidas</a>
                 <a href="<?php echo e($sectionPrefix); ?>direitos">Entenda seus direitos</a>
-                <a href="<?php echo e($sectionPrefix); ?>documentos">Documentos</a>
                 <a href="<?php echo e($sectionPrefix); ?>duvidas">Dúvidas</a>
                 <a href="<?php echo e($sectionPrefix); ?>contato">Entre em contato</a>
                 <a href="<?php echo e($whatsappLink); ?>" target="_blank" rel="noopener" class="whatsapp-cta soft-radius inline-flex items-center justify-center gap-2 border border-bordo bg-bordo px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] text-cream transition hover:border-wineDark hover:bg-wineDark">Conversar sobre meu caso</a>

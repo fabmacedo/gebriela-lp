@@ -118,7 +118,6 @@ $endereco_local = $settings['endereco_local'];
             <nav class="grid gap-2 text-xs uppercase tracking-[0.16em] text-cream/60 reveal">
                 <a href="index.php#situacoes" class="hover:text-cream">Situações atendidas</a>
                 <a href="index.php#direitos" class="hover:text-cream">Entenda seus direitos</a>
-                <a href="index.php#documentos" class="hover:text-cream">Documentos</a>
                 <a href="index.php#duvidas" class="hover:text-cream">Dúvidas</a>
             </nav>
             <div class="grid content-start gap-3 text-sm text-cream/70 reveal">

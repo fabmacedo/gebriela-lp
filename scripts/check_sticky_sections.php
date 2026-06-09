@@ -6,7 +6,7 @@ if ($index === false) {
     exit(1);
 }
 
-$requiredStickyBlocks = ['documentos', 'duvidas'];
+$requiredStickyBlocks = ['duvidas'];
 
 $missing = [];
 foreach ($requiredStickyBlocks as $section) {
@@ -23,17 +23,6 @@ foreach ($requiredStickyBlocks as $section) {
 
 if ($missing !== []) {
     fwrite(STDERR, 'Blocos sticky ausentes: ' . implode(', ', $missing) . "\n");
-    exit(1);
-}
-
-$documentosPattern = '/<section id="documentos".*?<\/section>/s';
-if (preg_match($documentosPattern, $index, $matches) !== 1 || !str_contains($matches[0], 'data-document-timeline')) {
-    fwrite(STDERR, "A seção documentos deve usar o layout de linha do tempo.\n");
-    exit(1);
-}
-
-if (str_contains($matches[0], 'md:static')) {
-    fwrite(STDERR, "Os marcadores da linha do tempo de documentos devem permanecer alinhados na linha.\n");
     exit(1);
 }
 
