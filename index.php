@@ -172,7 +172,7 @@ $areas = [
         <section class="bg-bordoDeep py-20 text-cream md:py-28">
             <div class="mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-[.9fr_1.1fr] lg:items-center lg:px-8">
                 <div class="relative reveal">
-                    <div class="soft-radius overflow-hidden shadow-2xl shadow-black/25"><img src="image/foto3.jpg" alt="Atendimento jurídico humanizado" class="aspect-[4/5] w-full object-cover object-[50%_42%]"></div>
+                    <div class="soft-radius overflow-hidden shadow-2xl shadow-black/25"><img src="image/foto4.webp" alt="Atendimento jurídico humanizado" class="aspect-[4/5] w-full object-cover object-[50%_42%]"></div>
                     <div class="soft-radius absolute -bottom-6 right-4 max-w-[18rem] bg-paper p-5 text-wineDark shadow-2xl sm:right-8">
                         <p class="font-serif text-2xl leading-tight">Sua saúde vem primeiro.</p>
                         <p class="mt-2 text-xs leading-6 text-ink/65">Busque atendimento médico e preserve os documentos desde o início.</p>
