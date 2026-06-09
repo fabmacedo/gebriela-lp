@@ -215,12 +215,12 @@ $areas = [
         <section id="documentos" class="bg-paper py-20 text-wineDark md:py-28">
             <div class="mx-auto max-w-7xl px-5 lg:px-8">
                 <div class="grid gap-12 lg:grid-cols-[.82fr_1.18fr] lg:gap-20">
-                    <div class="reveal">
+                    <aside class="reveal lg:sticky lg:top-28 lg:self-start">
                         <p class="mb-4 text-[11px] font-bold uppercase tracking-[0.2em] text-wine/65">Preserve sua história</p>
                         <h2 class="font-serif text-4xl leading-tight md:text-6xl">O que guardar desde agora.</h2>
                         <p class="mt-6 max-w-md text-base leading-8 text-ink/65">Você não precisa ter tudo para iniciar uma conversa. Mas organizar o que já existe ajuda a compreender o caso com mais clareza.</p>
                         <p class="soft-radius mt-8 border border-wine/12 bg-white p-5 text-sm leading-7 text-ink/65"><strong class="text-wineDark">Antes de tudo:</strong> priorize seu cuidado médico e preserve apenas documentos e registros obtidos de forma lícita.</p>
-                    </div>
+                    </aside>
                     <div class="grid gap-3 sm:grid-cols-2 reveal">
                         <?php foreach ($documents as $index => $item): ?>
                             <article class="soft-radius flex gap-4 border border-wine/10 bg-white p-5">
