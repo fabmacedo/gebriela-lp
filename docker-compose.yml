@@ -1,17 +1,19 @@
+name: gabriela-lp
+
 services:
   db:
     image: mysql:8.4
-    container_name: gabriela-site-db
+    container_name: gabriela-lp-db
     restart: unless-stopped
     environment:
-      MYSQL_DATABASE: gabriela_site
-      MYSQL_USER: gabriela_user
+      MYSQL_DATABASE: gabriela_lp
+      MYSQL_USER: gabriela_lp_user
       MYSQL_PASSWORD: gabriela_pass
       MYSQL_ROOT_PASSWORD: root_pass
     ports:
-      - "3307:3306"
+      - "3308:3306"
     volumes:
-      - gabriela_mysql_data:/var/lib/mysql
+      - gabriela_lp_mysql_data:/var/lib/mysql
       - ./database.sql:/docker-entrypoint-initdb.d/001-database.sql:ro
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot_pass"]
@@ -21,7 +23,7 @@ services:
 
   web:
     build: .
-    container_name: gabriela-site-web
+    container_name: gabriela-lp-web
     restart: unless-stopped
     depends_on:
       db:
@@ -29,13 +31,13 @@ services:
     environment:
       DB_HOST: db
       DB_PORT: 3306
-      DB_NAME: gabriela_site
-      DB_USER: gabriela_user
+      DB_NAME: gabriela_lp
+      DB_USER: gabriela_lp_user
       DB_PASS: gabriela_pass
     ports:
-      - "8081:80"
+      - "8082:80"
     volumes:
       - ./:/var/www/html
 
 volumes:
-  gabriela_mysql_data:
+  gabriela_lp_mysql_data:
