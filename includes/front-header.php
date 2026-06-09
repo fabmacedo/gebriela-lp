@@ -99,9 +99,14 @@ function render_front_header(array $settings, bool $isHome = false): void
     ?>
     <header id="site-header" class="site-header fixed inset-x-0 top-4 z-50 px-4 sm:top-6">
         <div class="floating-header mx-auto flex min-h-16 max-w-7xl items-center justify-between gap-6 border border-bordo/15 px-5 py-3 lg:min-h-20 lg:px-8">
-            <a href="<?php echo e($logoHref); ?>" class="site-logo text-wineDark" aria-label="<?php echo e($officeName); ?> Home">
-                <img src="image/logo-gabriela-pita.png" alt="" class="site-header-logo">
-            </a>
+            <div class="flex items-center gap-3 sm:gap-4">
+                <button id="menu-btn" class="soft-radius grid h-10 w-10 shrink-0 place-items-center border border-bordo/25 bg-white text-bordo lg:hidden" aria-label="Abrir menu">
+                    <?php echo ph_icon('list', 'text-2xl leading-none'); ?>
+                </button>
+                <a href="<?php echo e($logoHref); ?>" class="site-logo text-wineDark" aria-label="<?php echo e($officeName); ?> Home">
+                    <img src="image/logo-gabriela-pita.png" alt="" class="site-header-logo">
+                </a>
+            </div>
             <nav class="ml-auto hidden items-center gap-7 text-[11px] font-bold uppercase tracking-[0.18em] text-wineDark/80 lg:flex">
                 <a class="transition hover:text-sand" href="<?php echo e($sectionPrefix); ?>situacoes">Situações atendidas</a>
                 <a class="transition hover:text-sand" href="<?php echo e($sectionPrefix); ?>direitos">Entenda seus direitos</a>
@@ -110,9 +115,6 @@ function render_front_header(array $settings, bool $isHome = false): void
             <a href="<?php echo e($whatsappLink); ?>" target="_blank" rel="noopener" class="whatsapp-cta soft-radius hidden items-center gap-2 border border-bordo bg-bordo px-5 py-3 text-[11px] font-bold uppercase tracking-[0.16em] text-cream transition hover:border-wineDark hover:bg-wineDark sm:inline-flex">
                 Conversar sobre meu caso
             </a>
-            <button id="menu-btn" class="soft-radius grid h-10 w-10 place-items-center border border-bordo/25 bg-white text-bordo lg:hidden" aria-label="Abrir menu">
-                <?php echo ph_icon('list', 'text-2xl leading-none'); ?>
-            </button>
         </div>
         <div id="mobile-menu" class="mx-auto mt-3 hidden max-w-7xl rounded-[10px] border border-bordo/15 bg-white px-5 py-5 shadow-2xl lg:hidden">
             <nav class="grid gap-4 text-sm font-semibold text-wineDark">
