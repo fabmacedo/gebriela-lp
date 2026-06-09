@@ -144,7 +144,7 @@ $areas = [
                         <a href="<?php echo e($whatsapp_link); ?>" target="_blank" rel="noopener" class="soft-radius inline-flex min-h-14 items-center justify-center gap-2 border border-white bg-white px-7 py-4 text-xs font-bold uppercase tracking-[0.14em] text-wineDark transition hover:bg-paper"><?php echo ph_icon('whatsapp-logo', 'text-xl'); ?> Conversar sobre meu caso</a>
                         <a href="#situacoes" class="text-xs font-bold uppercase tracking-[0.15em] text-cream/80 transition hover:text-sand">Entender melhor <?php echo ph_icon('arrow-down', 'ml-2 inline text-base'); ?></a>
                     </div>
-                    <p class="mt-6 flex max-w-xl items-start gap-2 text-sm text-cream/65"><?php echo ph_icon('check-circle', 'mt-0.5 text-lg text-sand'); ?> Atendimento online e presencial, com análise individual e orientação clara.</p>
+                    <p class="mt-6 flex max-w-xl items-center gap-2 text-sm text-cream/65"><?php echo ph_icon('check-circle', 'shrink-0 text-lg leading-none text-sand'); ?> Atendimento online e presencial, com análise individual e orientação clara.</p>
                 </div>
             </div>
         </section>
