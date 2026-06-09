@@ -103,14 +103,13 @@ function render_front_header(array $settings, bool $isHome = false): void
                 <img src="image/logo-gabriela-pita.png" alt="" class="site-header-logo">
             </a>
             <nav class="ml-auto hidden items-center gap-7 text-[11px] font-bold uppercase tracking-[0.18em] text-wineDark/80 lg:flex">
-                <a class="transition hover:text-sand" href="<?php echo e($sectionPrefix); ?>sobre">Quem sou eu?</a>
-                <a class="transition hover:text-sand" href="<?php echo e($sectionPrefix); ?>servicos">Serviços</a>
-                <a class="transition hover:text-sand" href="<?php echo e($sectionPrefix); ?>diferenciais">Diferenciais</a>
+                <a class="transition hover:text-sand" href="<?php echo e($sectionPrefix); ?>situacoes">Situações atendidas</a>
+                <a class="transition hover:text-sand" href="<?php echo e($sectionPrefix); ?>direitos">Entenda seus direitos</a>
+                <a class="transition hover:text-sand" href="<?php echo e($sectionPrefix); ?>documentos">Documentos</a>
                 <a class="transition hover:text-sand" href="<?php echo e($sectionPrefix); ?>duvidas">Dúvidas</a>
-                <a class="transition hover:text-sand" href="blog.php">Blog</a>
             </nav>
             <a href="<?php echo e($whatsappLink); ?>" target="_blank" rel="noopener" class="whatsapp-cta soft-radius hidden items-center gap-2 border border-bordo bg-bordo px-5 py-3 text-[11px] font-bold uppercase tracking-[0.16em] text-cream transition hover:border-wineDark hover:bg-wineDark sm:inline-flex">
-                Falar com especialista
+                Conversar sobre meu caso
             </a>
             <button id="menu-btn" class="soft-radius grid h-10 w-10 place-items-center border border-bordo/25 bg-white text-bordo lg:hidden" aria-label="Abrir menu">
                 <?php echo ph_icon('list', 'text-2xl leading-none'); ?>
@@ -118,13 +117,12 @@ function render_front_header(array $settings, bool $isHome = false): void
         </div>
         <div id="mobile-menu" class="mx-auto mt-3 hidden max-w-7xl rounded-[10px] border border-bordo/15 bg-white px-5 py-5 shadow-2xl lg:hidden">
             <nav class="grid gap-4 text-sm font-semibold text-wineDark">
-                <a href="<?php echo e($sectionPrefix); ?>sobre">Quem sou eu?</a>
-                <a href="<?php echo e($sectionPrefix); ?>servicos">Serviços</a>
-                <a href="<?php echo e($sectionPrefix); ?>diferenciais">Diferenciais</a>
+                <a href="<?php echo e($sectionPrefix); ?>situacoes">Situações atendidas</a>
+                <a href="<?php echo e($sectionPrefix); ?>direitos">Entenda seus direitos</a>
+                <a href="<?php echo e($sectionPrefix); ?>documentos">Documentos</a>
                 <a href="<?php echo e($sectionPrefix); ?>duvidas">Dúvidas</a>
-                <a href="blog.php">Blog</a>
                 <a href="<?php echo e($sectionPrefix); ?>contato">Entre em contato</a>
-                <a href="<?php echo e($whatsappLink); ?>" target="_blank" rel="noopener" class="whatsapp-cta soft-radius inline-flex items-center justify-center gap-2 border border-bordo bg-bordo px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] text-cream transition hover:border-wineDark hover:bg-wineDark">Falar com especialista</a>
+                <a href="<?php echo e($whatsappLink); ?>" target="_blank" rel="noopener" class="whatsapp-cta soft-radius inline-flex items-center justify-center gap-2 border border-bordo bg-bordo px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] text-cream transition hover:border-wineDark hover:bg-wineDark">Conversar sobre meu caso</a>
             </nav>
         </div>
     </header>

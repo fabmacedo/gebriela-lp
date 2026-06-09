@@ -33,10 +33,12 @@ register_rate_limit_attempt($rateKey, 600);
 
 $settings = get_site_settings();
 $allowedAreas = [
-    'Trabalhista (Trabalhador)',
-    'Empresarial / Preventiva',
-    'Cível / Família',
-    'Previdenciário',
+    'Acidente de trabalho',
+    'Doença física relacionada ao trabalho',
+    'Adoecimento emocional relacionado ao trabalho',
+    'Benefício do INSS ou CAT',
+    'Dispensa após acidente ou adoecimento',
+    'Outra situação relacionada à saúde no trabalho',
 ];
 
 $name = trim_limited((string) ($_POST['name'] ?? ''), 120);
