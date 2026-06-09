@@ -108,6 +108,14 @@ $areas = [
             .hero-photo { object-position:68% center; }
             .hero-overlay { background:linear-gradient(180deg,rgba(38,3,5,.78),rgba(63,7,10,.6) 44%,rgba(38,3,5,.92)); }
         }
+        @media (min-width:640px) and (max-width:1023px) {
+            .hero-photo { object-position:72% center; }
+            .hero-overlay {
+                background:
+                    linear-gradient(90deg,rgba(38,3,5,.96) 0%,rgba(63,7,10,.82) 34%,rgba(63,7,10,.14) 58%,rgba(38,3,5,0) 78%),
+                    linear-gradient(0deg,rgba(18,7,5,.72),transparent 55%);
+            }
+        }
         @media (min-width:1024px) and (max-width:1279px) {
             .hero-photo { object-position:68% center; }
         }
@@ -121,11 +129,11 @@ $areas = [
             <img src="<?php echo e($hero_image_url); ?>" alt="" aria-hidden="true" class="hero-photo absolute inset-0 h-full w-full object-cover">
             <div class="hero-overlay absolute inset-0"></div>
             <div class="relative mx-auto flex min-h-[780px] max-w-7xl items-center px-5 pb-16 pt-32 sm:min-h-screen lg:px-8">
-                <div class="max-w-[42rem] pt-10 reveal sm:max-w-[29rem] md:max-w-[32rem] lg:max-w-[36rem] xl:max-w-[42rem]">
+                <div class="max-w-[42rem] pt-10 reveal sm:max-w-[23rem] md:max-w-[26rem] lg:max-w-[36rem] xl:max-w-[42rem]">
                     <p class="soft-radius inline-flex bg-cream/10 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-sand">Acidente de trabalho e doença ocupacional</p>
                     <h1 class="mt-7 font-serif text-[2.55rem] font-semibold leading-[1.02] sm:text-5xl lg:text-[4.25rem]">Seu trabalho deixou marcas na sua saúde?</h1>
-                    <p class="mt-6 max-w-[39rem] text-base leading-8 text-cream/85 sm:max-w-[28rem] md:max-w-[31rem] lg:max-w-[34rem] xl:max-w-[39rem] lg:text-lg">Quando uma lesão, uma dor persistente ou um adoecimento começa a afetar sua rotina, entender o que aconteceu é o primeiro passo para cuidar da sua saúde e compreender seus direitos.</p>
-                    <div class="mt-9 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+                    <p class="mt-6 max-w-[39rem] text-base leading-8 text-cream/85 sm:max-w-[23rem] md:max-w-[26rem] lg:max-w-[34rem] xl:max-w-[39rem] lg:text-lg">Quando uma lesão, uma dor persistente ou um adoecimento começa a afetar sua rotina, entender o que aconteceu é o primeiro passo para cuidar da sua saúde e compreender seus direitos.</p>
+                    <div class="mt-9 flex flex-col items-start gap-4 md:flex-row md:items-center">
                         <a href="<?php echo e($whatsapp_link); ?>" target="_blank" rel="noopener" class="soft-radius inline-flex min-h-14 items-center justify-center gap-2 border border-white bg-white px-7 py-4 text-xs font-bold uppercase tracking-[0.14em] text-wineDark transition hover:bg-paper"><?php echo ph_icon('whatsapp-logo', 'text-xl'); ?> Conversar sobre meu caso</a>
                         <a href="#situacoes" class="text-xs font-bold uppercase tracking-[0.15em] text-cream/80 transition hover:text-sand">Entender melhor <?php echo ph_icon('arrow-down', 'ml-2 inline text-base'); ?></a>
                     </div>
