@@ -93,14 +93,14 @@ $endereco_local = $settings['endereco_local'];
                     </p>
                     <div class="mt-8 flex flex-col items-stretch gap-3 sm:flex-row">
                         <a href="index.php#inicio" class="soft-radius inline-flex items-center justify-center border border-white bg-white px-7 py-4 text-xs font-bold uppercase tracking-[0.16em] text-wineDark transition hover:bg-paper">Voltar ao início</a>
-                        <a href="<?php echo e($whatsapp_link); ?>" target="_blank" rel="noopener" class="soft-radius inline-flex items-center justify-center gap-2 border border-white bg-white px-7 py-4 text-xs font-bold uppercase tracking-[0.16em] text-wineDark transition hover:bg-paper">Falar com especialista</a>
+                        <a href="<?php echo e($whatsapp_link); ?>" target="_blank" rel="noopener" class="soft-radius inline-flex items-center justify-center gap-2 border border-white bg-white px-7 py-4 text-xs font-bold uppercase tracking-[0.16em] text-wineDark transition hover:bg-paper">Conversar sobre meu caso</a>
                     </div>
                 </div>
                 <div class="soft-radius border border-[#6B181D] bg-bordoDeep/35 p-8 reveal">
                     <p class="font-serif text-[9rem] leading-none text-cream/90 md:text-[13rem]">404</p>
                     <div class="mt-8 grid gap-4 border-t border-cream/15 pt-8 text-sm text-cream/70">
-                        <a class="hover:text-cream" href="blog.php">Ir para o blog</a>
-                        <a class="hover:text-cream" href="index.php#servicos">Ver serviços jurídicos</a>
+                        <a class="hover:text-cream" href="index.php#situacoes">Ver situações atendidas</a>
+                        <a class="hover:text-cream" href="index.php#direitos">Entender o que pode ser analisado</a>
                         <a class="hover:text-cream" href="index.php#duvidas">Consultar dúvidas frequentes</a>
                     </div>
                 </div>
@@ -116,10 +116,10 @@ $endereco_local = $settings['endereco_local'];
                 <p class="mt-5 text-xs text-cream/60"><?php echo e($oab_registro); ?></p>
             </div>
             <nav class="grid gap-2 text-xs uppercase tracking-[0.16em] text-cream/60 reveal">
-                <a href="index.php#sobre" class="hover:text-cream">Quem sou eu?</a>
-                <a href="index.php#servicos" class="hover:text-cream">Serviços</a>
-                <a href="index.php#diferenciais" class="hover:text-cream">Diferenciais</a>
-                <a href="blog.php" class="hover:text-cream">Blog</a>
+                <a href="index.php#situacoes" class="hover:text-cream">Situações atendidas</a>
+                <a href="index.php#direitos" class="hover:text-cream">Entenda seus direitos</a>
+                <a href="index.php#documentos" class="hover:text-cream">Documentos</a>
+                <a href="index.php#duvidas" class="hover:text-cream">Dúvidas</a>
             </nav>
             <div class="grid content-start gap-3 text-sm text-cream/70 reveal">
                 <a href="<?php echo e($whatsapp_link); ?>" target="_blank" rel="noopener" class="inline-flex items-center gap-2 hover:text-cream">WhatsApp: <?php echo e($whatsapp_friendly); ?></a>

@@ -86,22 +86,19 @@ function get_site_settings(): array
         'smtp_from_name' => 'Gabriela Pita Advogados Associados',
         'smtp_to_email' => 'contato@gabrielapitaadvogados.com.br',
         'seo_site_url' => 'https://gabrielapitaadvogados.com.br/',
-        'seo_home_title' => 'Gabriela Pita Advogados Associados | Advocacia Trabalhista, Cível e Previdenciária',
-        'seo_home_description' => 'Assessoria jurídica estratégica para trabalhadores e empresas, com atuação em direito trabalhista, cível e previdenciário. Atendimento humanizado, técnico e transparente em Senhor do Bonfim - BA.',
-        'seo_home_keywords' => 'Gabriela Pita, advogada trabalhista, advocacia trabalhista, direito do trabalho, direito previdenciário, direito cível, advogado em Senhor do Bonfim, assessoria jurídica para empresas, rescisão trabalhista, assédio moral no trabalho',
-        'seo_blog_title' => 'Blog Jurídico | Gabriela Pita Advogados Associados',
-        'seo_blog_description' => 'Artigos jurídicos sobre direitos trabalhistas, previdenciários e cíveis, com orientações claras para trabalhadores e empresas.',
-        'seo_post_title_suffix' => 'Gabriela Pita Advogados Associados',
+        'seo_home_title' => 'Acidente de Trabalho e Doença Ocupacional | Gabriela Pita',
+        'seo_home_description' => 'Orientação jurídica humanizada para trabalhadores que sofreram acidente de trabalho ou enfrentam doença física ou emocional relacionada ao trabalho.',
+        'seo_home_keywords' => 'acidente de trabalho, doença ocupacional, burnout relacionado ao trabalho, LER DORT, CAT, estabilidade acidentária, auxílio-acidente, advogado trabalhista',
         'seo_author' => 'Gabriela Pita Advogados Associados',
         'seo_robots' => 'index, follow',
-        'seo_og_title' => 'Gabriela Pita Advogados Associados',
-        'seo_og_description' => 'Advocacia estratégica com atendimento próximo, análise técnica individualizada e soluções jurídicas sob medida para trabalhadores e empresas.',
+        'seo_og_title' => 'Acidente de Trabalho e Doença Ocupacional | Gabriela Pita',
+        'seo_og_description' => 'Informação clara e atendimento humanizado para compreender a relação entre trabalho, saúde e possíveis direitos.',
         'seo_og_image' => 'image/foto-hero.png',
         'seo_twitter_card' => 'summary_large_image',
         'seo_locale' => 'pt_BR',
         'seo_schema_type' => 'LegalService',
         'seo_area_served' => 'Senhor do Bonfim, Bahia, Brasil',
-        'seo_business_description' => 'Escritório de advocacia com atuação estratégica em direito trabalhista, cível e previdenciário, oferecendo atendimento humanizado e análise técnica individualizada.',
+        'seo_business_description' => 'Escritório de advocacia com atuação em acidente de trabalho e doença ocupacional, oferecendo atendimento humanizado e análise individual.',
     ];
 
     $pdo = db();
@@ -242,68 +239,4 @@ function render_legal_schema(array $settings): void
     ];
 
     echo '    <script type="application/ld+json">' . json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . "</script>\n";
-}
-
-function get_published_posts(int $limit = 3): array
-{
-    $limit = max(1, min($limit, 1000));
-    $pdo = db();
-    if (!$pdo) {
-        return [];
-    }
-
-    try {
-        $stmt = $pdo->prepare(
-            'SELECT title, slug, excerpt, content, published_at
-             FROM blog_posts
-             WHERE status = "published"
-             ORDER BY published_at DESC, created_at DESC
-             LIMIT :limit'
-        );
-        $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
-        $stmt->execute();
-
-        return $stmt->fetchAll();
-    } catch (Throwable $e) {
-        return [];
-    }
-}
-
-function get_published_posts_page(int $page = 1, int $perPage = 10): array
-{
-    $pdo = db();
-    if (!$pdo) {
-        return ['posts' => [], 'total' => 0, 'pages' => 1, 'page' => 1];
-    }
-
-    $page = max(1, $page);
-    $perPage = max(1, min($perPage, 100));
-    $offset = ($page - 1) * $perPage;
-
-    try {
-        $total = (int) $pdo->query('SELECT COUNT(*) FROM blog_posts WHERE status = "published"')->fetchColumn();
-        $pages = max(1, (int) ceil($total / $perPage));
-        $page = min($page, $pages);
-        $offset = ($page - 1) * $perPage;
-
-        $stmt = $pdo->prepare(
-            'SELECT title, slug, excerpt, content, published_at
-             FROM blog_posts
-             WHERE status = "published"
-             ORDER BY published_at DESC, created_at DESC
-             LIMIT :limit OFFSET :offset'
-        );
-        $stmt->bindValue(':limit', $perPage, PDO::PARAM_INT);
-        $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
-        $stmt->execute();
-
-        return [
-            'posts' => $stmt->fetchAll(),
-            'total' => $total,
-            'pages' => $pages,
-            'page' => $page,
-        ];
-    } catch (Throwable $e) {
-        return ['posts' => [], 'total' => 0, 'pages' => 1, 'page' => 1];
-    }
 }

@@ -347,7 +347,6 @@ security_headers(true);
                 <a href="settings.php">Dados</a>
                 <a href="seo.php">SEO</a>
                 <a href="email.php">E-mail</a>
-                <a href="posts.php">Blog</a>
                 <a href="../index.php" target="_blank">Ver site</a>
                 <a href="logout.php">Sair</a>
             </nav>

@@ -3,18 +3,6 @@ require_once __DIR__ . '/../includes/auth.php';
 require_admin();
 
 $pdo = db();
-$postCount = 0;
-$publishedCount = 0;
-
-if ($pdo) {
-    try {
-        $postCount = (int) $pdo->query('SELECT COUNT(*) FROM blog_posts')->fetchColumn();
-        $publishedCount = (int) $pdo->query('SELECT COUNT(*) FROM blog_posts WHERE status = "published"')->fetchColumn();
-    } catch (Throwable $e) {
-        $postCount = 0;
-        $publishedCount = 0;
-    }
-}
 ?>
 <?php include __DIR__ . '/_header.php'; ?>
 <main class="wrap">
@@ -39,9 +27,9 @@ if ($pdo) {
             <a class="btn btn-primary" href="email.php">Editar e-mail</a>
         </section>
         <section class="card stack">
-            <h2>Blog</h2>
-            <p class="muted"><?php echo $publishedCount; ?> publicado(s) de <?php echo $postCount; ?> post(s) cadastrado(s).</p>
-            <a class="btn btn-primary" href="posts.php">Gerenciar posts</a>
+            <h2>Ver landing page</h2>
+            <p class="muted">Confira o conteúdo público e a experiência de atendimento da página.</p>
+            <a class="btn btn-primary" href="../index.php" target="_blank" rel="noopener">Abrir landing page</a>
         </section>
     </div>
 </main>

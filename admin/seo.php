@@ -64,18 +64,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <textarea id="seo_home_keywords" name="seo_home_keywords"><?php echo e($settings['seo_home_keywords'] ?? ''); ?></textarea>
                 </div>
                 <div>
-                    <label for="seo_blog_title">Título SEO do blog</label>
-                    <input id="seo_blog_title" name="seo_blog_title" type="text" value="<?php echo e($settings['seo_blog_title'] ?? ''); ?>">
-                </div>
-                <div>
-                    <label for="seo_post_title_suffix">Sufixo dos títulos dos posts</label>
-                    <input id="seo_post_title_suffix" name="seo_post_title_suffix" type="text" value="<?php echo e($settings['seo_post_title_suffix'] ?? ''); ?>">
-                </div>
-                <div class="field-span-2">
-                    <label for="seo_blog_description">Descrição SEO do blog</label>
-                    <textarea id="seo_blog_description" name="seo_blog_description"><?php echo e($settings['seo_blog_description'] ?? ''); ?></textarea>
-                </div>
-                <div>
                     <label for="seo_robots">Robots</label>
                     <select id="seo_robots" name="seo_robots">
                         <option value="index, follow" <?php echo ($settings['seo_robots'] ?? 'index, follow') === 'index, follow' ? 'selected' : ''; ?>>Indexar e seguir links</option>
