@@ -1,4 +1,5 @@
 backup/
+backups/
 *.zip
 *.log
 .env
