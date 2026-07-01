@@ -22,14 +22,16 @@ $hero_image_url = $settings['hero_image_url'];
 $whatsapp_link = $settings['whatsapp_link'];
 
 $situations = [
-    ['Acidente durante o trabalho', 'Quedas, cortes, fraturas, queimaduras ou outros acontecimentos durante a atividade profissional.', 'first-aid-kit'],
-    ['Acidente de trajeto ou a serviço', 'Ocorrências no percurso entre casa e trabalho, em viagens ou no cumprimento de ordens da empresa.', 'map-trifold'],
+    ['Assédio moral no trabalho', 'Humilhações, perseguições, cobranças abusivas, isolamento ou constrangimentos repetitivos que podem comprometer a saúde mental do trabalhador.', 'warning-circle'],
+    ['Ansiedade, burnout e depressão', 'Adoecimento relacionado à pressão excessiva, metas abusivas, jornadas exaustivas ou outras condições do ambiente de trabalho.', 'brain'],
+    ['Burnout e saúde emocional', 'Ansiedade, depressão, esgotamento ou outros adoecimentos possivelmente ligados ao ambiente profissional.', 'heartbeat'],
+    ['Doença agravada pelo trabalho', 'Uma condição anterior também pode merecer análise quando o trabalho contribui para seu agravamento.', 'shield-warning'],
     ['LER/DORT, dores e limitações', 'Lesões por esforço repetitivo, dores persistentes e perda de mobilidade que afetam sua rotina.', 'hand'],
     ['Problemas de coluna e lesões', 'Condições relacionadas a peso, postura, esforço físico ou movimentos repetidos.', 'person-simple'],
     ['Perda auditiva e exposições', 'Adoecimento relacionado a ruído, produtos químicos ou outros agentes presentes no trabalho.', 'ear'],
-    ['Burnout e saúde emocional', 'Ansiedade, depressão, esgotamento ou outros adoecimentos possivelmente ligados ao ambiente profissional.', 'brain'],
-    ['Doença agravada pelo trabalho', 'Uma condição anterior também pode merecer análise quando o trabalho contribui para seu agravamento.', 'heartbeat'],
     ['Dispensa após adoecimento', 'Situações em que a demissão ocorreu durante ou depois de afastamento, acidente ou descoberta da doença.', 'user-minus'],
+    ['Acidente durante o trabalho', 'Quedas, cortes, fraturas, queimaduras ou outros acontecimentos durante a atividade profissional.', 'first-aid-kit'],
+    ['Acidente de trajeto ou a serviço', 'Ocorrências no percurso entre casa e trabalho, em viagens ou no cumprimento de ordens da empresa.', 'map-trifold'],
 ];
 
 $rights = [

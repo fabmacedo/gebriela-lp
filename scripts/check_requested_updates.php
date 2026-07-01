@@ -30,6 +30,20 @@ function require_not_contains(string $content, string $needle, string $label, ar
     }
 }
 
+function require_ordered_occurrence(string $content, array $needles, string $label, array &$failures): void
+{
+    $offset = 0;
+    foreach ($needles as $needle) {
+        $position = strpos($content, $needle, $offset);
+        if ($position === false) {
+            $failures[] = "{$label}: item fora de ordem ou ausente: {$needle}.";
+            return;
+        }
+
+        $offset = $position + strlen($needle);
+    }
+}
+
 $expectedTitle = 'Nenhum trabalho deveria custar a sua saúde mental.';
 $expectedDescription = 'Se você vive sob pressão excessiva, metas abusivas, assédio ou um ambiente que tem afetado sua saúde emocional, saiba que essa situação pode gerar direitos trabalhistas.';
 $expectedOab = 'OAB - 27344';
@@ -41,6 +55,19 @@ require_contains($index, $expectedTitle, 'Hero titulo', $failures);
 require_contains($index, $expectedDescription, 'Hero descricao', $failures);
 require_not_contains($index, 'Seu trabalho deixou marcas na sua saúde?', 'Hero titulo antigo', $failures);
 require_not_contains($index, 'Quando uma lesão, uma dor persistente ou um adoecimento começa a afetar sua rotina', 'Hero descricao antiga', $failures);
+require_ordered_occurrence($index, [
+    "['Assédio moral no trabalho'",
+    "['Ansiedade, burnout e depressão'",
+    "['Burnout e saúde emocional'",
+    "['Doença agravada pelo trabalho'",
+    "['LER/DORT, dores e limitações'",
+    "['Problemas de coluna e lesões'",
+    "['Perda auditiva e exposições'",
+    "['Dispensa após adoecimento'",
+    "['Acidente durante o trabalho'",
+], 'Ordem dos cards de situações', $failures);
+require_contains($index, 'Humilhações, perseguições, cobranças abusivas, isolamento ou constrangimentos repetitivos que podem comprometer a saúde mental do trabalhador.', 'Card assedio moral', $failures);
+require_contains($index, 'Adoecimento relacionado à pressão excessiva, metas abusivas, jornadas exaustivas ou outras condições do ambiente de trabalho.', 'Card ansiedade burnout depressao', $failures);
 
 $site = read_project_file('includes/site.php');
 require_contains($site, "'oab_registro' => '{$expectedOab}'", 'Default OAB', $failures);
