@@ -50,6 +50,13 @@ $expectedOab = 'OAB - 27344';
 
 $failures = [];
 
+require_once $root . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'site.php';
+if (!function_exists('normalize_oab_registro')) {
+    $failures[] = 'Normalizacao de OAB: funcao ausente.';
+} elseif (normalize_oab_registro('OAB/BA 123.456') !== $expectedOab) {
+    $failures[] = 'Normalizacao de OAB: valor antigo do banco nao vira OAB correta.';
+}
+
 $index = read_project_file('index.php');
 require_contains($index, $expectedTitle, 'Hero titulo', $failures);
 require_contains($index, $expectedDescription, 'Hero descricao', $failures);
@@ -71,7 +78,6 @@ require_contains($index, 'Adoecimento relacionado à pressão excessiva, metas a
 
 $site = read_project_file('includes/site.php');
 require_contains($site, "'oab_registro' => '{$expectedOab}'", 'Default OAB', $failures);
-require_not_contains($site, 'OAB/BA 123.456', 'OAB placeholder em defaults', $failures);
 
 $database = read_project_file('database.sql');
 require_contains($database, "('oab_registro', '{$expectedOab}')", 'Seed OAB', $failures);

@@ -12,6 +12,16 @@ function only_numbers(string $value): string
     return preg_replace('/\D+/', '', $value) ?? '';
 }
 
+function normalize_oab_registro(?string $value): string
+{
+    $trimmed = trim((string) $value);
+    if ($trimmed === '' || $trimmed === 'OAB/BA 123.456') {
+        return 'OAB - 27344';
+    }
+
+    return $trimmed;
+}
+
 function render_phosphor_icons(): void
 {
     echo '    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/light/style.css">' . "\n";
@@ -103,6 +113,7 @@ function get_site_settings(): array
 
     $pdo = db();
     if (!$pdo) {
+        $defaults['oab_registro'] = normalize_oab_registro($defaults['oab_registro']);
         $defaults['whatsapp_raw'] = only_numbers($defaults['whatsapp_raw']);
         $defaults['whatsapp_link'] = 'https://wa.me/' . $defaults['whatsapp_raw'];
         return $defaults;
@@ -116,9 +127,11 @@ function get_site_settings(): array
             }
         }
     } catch (Throwable $e) {
+        $defaults['oab_registro'] = normalize_oab_registro($defaults['oab_registro']);
         return $defaults;
     }
 
+    $defaults['oab_registro'] = normalize_oab_registro($defaults['oab_registro']);
     $defaults['whatsapp_raw'] = only_numbers($defaults['whatsapp_raw']);
     $defaults['whatsapp_link'] = 'https://wa.me/' . $defaults['whatsapp_raw'];
 
