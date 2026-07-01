@@ -65,8 +65,8 @@ $faqs = [
 ];
 
 $areas = [
+    'Doença ocupacional',
     'Acidente de trabalho',
-    'Doença física relacionada ao trabalho',
     'Adoecimento emocional relacionado ao trabalho',
     'Benefício do INSS ou CAT',
     'Dispensa após acidente ou adoecimento',
@@ -102,6 +102,80 @@ $areas = [
         .faq-content-inner { overflow:hidden; }
         .faq-icon { transition:transform .24s ease; }
         details[open] .faq-icon { transform:rotate(180deg); }
+        .contact-select { position: relative; }
+        .contact-select-button {
+            border: 1px solid rgba(90,7,7,.18);
+            border-radius: 10px;
+            background: linear-gradient(180deg, rgba(255,248,239,.94), rgba(244,237,228,.7));
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.8), 0 10px 30px rgba(63,7,10,.06);
+            color: #2A1713;
+            display: flex;
+            min-height: 58px;
+            width: 100%;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            text-align: left;
+            transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+        }
+        .contact-select-button:hover,
+        .contact-select.is-open .contact-select-button {
+            border-color: rgba(90,7,7,.42);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.85), 0 14px 34px rgba(63,7,10,.1);
+        }
+        .contact-select-button:focus-visible {
+            border-color: rgba(90,7,7,.55);
+            outline: 3px solid rgba(215,194,168,.55);
+            outline-offset: 2px;
+        }
+        .contact-select-leading {
+            color: #5A0707;
+            display: grid;
+            flex: 0 0 28px;
+            height: 28px;
+            place-items: center;
+            width: 28px;
+        }
+        .contact-select-label { min-width: 0; flex: 1; }
+        .contact-select-caret { color: #5A0707; flex: 0 0 auto; transition: transform .2s ease; }
+        .contact-select.is-open .contact-select-caret { transform: rotate(180deg); }
+        .contact-select-menu {
+            background: #FFF8EF;
+            border: 1px solid rgba(90,7,7,.18);
+            border-radius: 10px;
+            box-shadow: 0 22px 50px rgba(38,3,5,.18);
+            left: 0;
+            max-height: 18rem;
+            overflow: auto;
+            padding: 7px;
+            position: absolute;
+            right: 0;
+            top: calc(100% + 8px);
+            z-index: 40;
+        }
+        .contact-select-option {
+            align-items: center;
+            border-radius: 8px;
+            color: #2A1713;
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+            padding: 12px 13px;
+            text-align: left;
+            transition: background .16s ease, color .16s ease;
+            width: 100%;
+        }
+        .contact-select-option:hover,
+        .contact-select-option:focus-visible {
+            background: rgba(90,7,7,.08);
+            outline: none;
+        }
+        .contact-select-option.is-selected {
+            background: #5A0707;
+            color: #FFF8EF;
+        }
+        .contact-select-check { opacity: 0; }
+        .contact-select-option.is-selected .contact-select-check { opacity: 1; }
         body.font-sans { font-size:17px; line-height:1.42; }
         body.font-sans p, body.font-sans li, body.font-sans a, body.font-sans button, body.font-sans input, body.font-sans textarea, body.font-sans select, body.font-sans label, body.font-sans summary { line-height:1.42; }
         .reveal { opacity:0; translate:0 24px; transition:opacity .8s ease,translate .8s ease; }
@@ -279,7 +353,25 @@ $areas = [
                     <div class="mt-6 grid gap-4">
                         <div><label class="mb-2 block text-[10px] font-bold uppercase tracking-[0.16em] text-wine/60">Nome completo</label><input id="form-name" type="text" required class="soft-radius w-full border border-wine/15 bg-paper/65 px-4 py-3 text-sm outline-none focus:border-wine/45" placeholder="Seu nome"></div>
                         <div><label class="mb-2 block text-[10px] font-bold uppercase tracking-[0.16em] text-wine/60">WhatsApp</label><input id="form-phone" type="tel" required class="soft-radius w-full border border-wine/15 bg-paper/65 px-4 py-3 text-sm outline-none focus:border-wine/45" placeholder="(00) 00000-0000"></div>
-                        <div><label class="mb-2 block text-[10px] font-bold uppercase tracking-[0.16em] text-wine/60">Qual situação mais se aproxima do seu caso?</label><select id="form-area" class="soft-radius w-full border border-wine/15 bg-paper/65 px-4 py-3 text-sm outline-none focus:border-wine/45"><?php foreach ($areas as $area): ?><option><?php echo e($area); ?></option><?php endforeach; ?></select></div>
+                        <div>
+                            <label id="form-area-label" class="mb-2 block text-[10px] font-bold uppercase tracking-[0.16em] text-wine/60">Qual situação mais se aproxima do seu caso?</label>
+                            <input id="form-area" type="hidden" value="Doença ocupacional">
+                            <div class="contact-select" data-contact-select>
+                                <button id="form-area-button" type="button" class="contact-select-button text-sm" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="form-area-label form-area-current" data-select-button>
+                                    <span class="contact-select-leading"><?php echo ph_icon('heartbeat', 'text-xl leading-none'); ?></span>
+                                    <span id="form-area-current" class="contact-select-label" data-select-label>Doença ocupacional</span>
+                                    <?php echo ph_icon('caret-down', 'contact-select-caret text-lg leading-none'); ?>
+                                </button>
+                                <div class="contact-select-menu hidden" role="listbox" aria-labelledby="form-area-label" data-select-menu>
+                                    <?php foreach ($areas as $index => $area): ?>
+                                        <button type="button" class="contact-select-option text-sm<?php echo $index === 0 ? ' is-selected' : ''; ?>" role="option" aria-selected="<?php echo $index === 0 ? 'true' : 'false'; ?>" data-select-option data-value="<?php echo e($area); ?>">
+                                            <span><?php echo e($area); ?></span>
+                                            <?php echo ph_icon('check', 'contact-select-check text-base leading-none'); ?>
+                                        </button>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                        </div>
                         <div><label class="mb-2 block text-[10px] font-bold uppercase tracking-[0.16em] text-wine/60">Relato breve</label><textarea id="form-message" rows="5" class="soft-radius w-full border border-wine/15 bg-paper/65 px-4 py-3 text-sm outline-none focus:border-wine/45" placeholder="Quando os sintomas ou o acidente começaram? Como isso afetou sua rotina?"></textarea></div>
                         <button type="submit" class="soft-radius border border-wine bg-wine px-6 py-4 text-xs font-bold uppercase tracking-[0.16em] text-cream transition hover:bg-wineDark">Enviar solicitação de atendimento</button>
                         <p id="form-status" class="hidden text-sm leading-relaxed"></p>
@@ -313,6 +405,73 @@ $areas = [
             if (value.length > 7) value = value.replace(/(\d)(\d{4})$/, '$1-$2');
             event.target.value = value;
         });
+        let syncContactSelect = () => {};
+        const contactSelect = document.querySelector('[data-contact-select]');
+        if (contactSelect) {
+            const selectButton = contactSelect.querySelector('[data-select-button]');
+            const selectMenu = contactSelect.querySelector('[data-select-menu]');
+            const selectLabel = contactSelect.querySelector('[data-select-label]');
+            const selectInput = document.getElementById('form-area');
+            const selectOptions = Array.prototype.slice.call(contactSelect.querySelectorAll('[data-select-option]'));
+
+            const setSelectOpen = (open) => {
+                contactSelect.classList.toggle('is-open', open);
+                selectMenu?.classList.toggle('hidden', !open);
+                selectButton?.setAttribute('aria-expanded', open ? 'true' : 'false');
+            };
+
+            const setSelectedOption = (option) => {
+                if (!option || !selectInput || !selectLabel) return;
+                const value = option.dataset.value || option.textContent.trim();
+                selectInput.value = value;
+                selectLabel.textContent = value;
+                selectOptions.forEach((item) => {
+                    const isSelected = item === option;
+                    item.classList.toggle('is-selected', isSelected);
+                    item.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+                });
+            };
+
+            syncContactSelect = () => {
+                const current = selectOptions.find((option) => option.dataset.value === selectInput?.value) || selectOptions[0];
+                setSelectedOption(current);
+            };
+
+            selectButton?.addEventListener('click', () => setSelectOpen(!contactSelect.classList.contains('is-open')));
+            selectButton?.addEventListener('keydown', (event) => {
+                if (!['ArrowDown', 'Enter', ' '].includes(event.key)) return;
+                event.preventDefault();
+                setSelectOpen(true);
+                (selectOptions.find((option) => option.classList.contains('is-selected')) || selectOptions[0])?.focus();
+            });
+            selectOptions.forEach((option) => {
+                option.addEventListener('click', () => {
+                    setSelectedOption(option);
+                    setSelectOpen(false);
+                    selectButton?.focus();
+                });
+                option.addEventListener('keydown', (event) => {
+                    const index = selectOptions.indexOf(option);
+                    if (event.key === 'ArrowDown') {
+                        event.preventDefault();
+                        selectOptions[Math.min(index + 1, selectOptions.length - 1)]?.focus();
+                    } else if (event.key === 'ArrowUp') {
+                        event.preventDefault();
+                        selectOptions[Math.max(index - 1, 0)]?.focus();
+                    } else if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        option.click();
+                    } else if (event.key === 'Escape') {
+                        setSelectOpen(false);
+                        selectButton?.focus();
+                    }
+                });
+            });
+            document.addEventListener('click', (event) => {
+                if (!contactSelect.contains(event.target)) setSelectOpen(false);
+            });
+            syncContactSelect();
+        }
         const leadForm = document.getElementById('lead-form');
         const formStatus = document.getElementById('form-status');
         leadForm?.addEventListener('submit', async (event) => {
@@ -326,7 +485,7 @@ $areas = [
                 const response = await fetch('contact-submit.php', { method:'POST', body:payload });
                 const result = await response.json();
                 if (!response.ok || !result.ok) throw new Error(result.message || 'Erro ao enviar.');
-                formStatus.className = 'text-sm text-wine'; formStatus.textContent = result.message; leadForm.reset();
+                formStatus.className = 'text-sm text-wine'; formStatus.textContent = result.message; leadForm.reset(); syncContactSelect();
             } catch (error) {
                 formStatus.className = 'text-sm text-red-700'; formStatus.textContent = error.message || 'Não foi possível enviar agora.';
             } finally { button.disabled = false; button.textContent = 'Enviar solicitação de atendimento'; }

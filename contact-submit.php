@@ -33,6 +33,7 @@ register_rate_limit_attempt($rateKey, 600);
 
 $settings = get_site_settings();
 $allowedAreas = [
+    'Doença ocupacional',
     'Acidente de trabalho',
     'Doença física relacionada ao trabalho',
     'Adoecimento emocional relacionado ao trabalho',

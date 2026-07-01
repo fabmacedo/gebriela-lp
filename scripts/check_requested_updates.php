@@ -75,6 +75,17 @@ require_ordered_occurrence($index, [
 ], 'Ordem dos cards de situações', $failures);
 require_contains($index, 'Humilhações, perseguições, cobranças abusivas, isolamento ou constrangimentos repetitivos que podem comprometer a saúde mental do trabalhador.', 'Card assedio moral', $failures);
 require_contains($index, 'Adoecimento relacionado à pressão excessiva, metas abusivas, jornadas exaustivas ou outras condições do ambiente de trabalho.', 'Card ansiedade burnout depressao', $failures);
+require_ordered_occurrence($index, [
+    '$areas = [',
+    "'Doença ocupacional'",
+    "'Acidente de trabalho'",
+], 'Ordem do dropdown de contato', $failures);
+require_contains($index, 'class="contact-select"', 'Dropdown visual', $failures);
+require_contains($index, 'data-select-option', 'Opcoes customizadas do dropdown', $failures);
+require_contains($index, 'value="Doença ocupacional"', 'Valor padrao do dropdown', $failures);
+
+$contactSubmit = read_project_file('contact-submit.php');
+require_contains($contactSubmit, "'Doença ocupacional'", 'Envio aceita Doenca ocupacional', $failures);
 
 $site = read_project_file('includes/site.php');
 require_contains($site, "'oab_registro' => '{$expectedOab}'", 'Default OAB', $failures);
