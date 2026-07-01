@@ -1,0 +1,10 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=$HOME/trabalhista.gabrielapitaadvogados.com.br/
+    - /bin/mkdir -p $DEPLOYPATH
+    - /bin/cp .htaccess $DEPLOYPATH/.htaccess
+    - /bin/cp 404.php contact-submit.php index.php robots.txt sitemap.php sitemap.xml $DEPLOYPATH
+    - /bin/cp -R admin font image includes $DEPLOYPATH
+    - /bin/mkdir -p $DEPLOYPATH/config
+    - /bin/cp config/.htaccess $DEPLOYPATH/config/.htaccess

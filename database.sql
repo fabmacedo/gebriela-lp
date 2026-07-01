@@ -8,7 +8,7 @@ INSERT INTO site_settings (setting_key, setting_value) VALUES
 ('whatsapp_raw', '5574981405295'),
 ('whatsapp_friendly', '(74) 98140-5295'),
 ('email_contato', 'contato@gabrielapitaadvogados.com.br'),
-('oab_registro', 'OAB/BA 123.456'),
+('oab_registro', 'OAB - 27344'),
 ('nome_escritorio', 'Gabriela Pita Advogados Associados'),
 ('endereco_local', 'Senhor do Bonfim - BA'),
 ('google_reviews_url', 'https://share.google/f0CHbeOnC5QMY2l4R'),
